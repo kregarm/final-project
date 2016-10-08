@@ -1,4 +1,5 @@
 <div class="col-md-8 col-md-offset-2">
+
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">Test runs</h3>
@@ -7,13 +8,13 @@
         <div class="box-body">
             <div><p>Test run was not yet started. Add a new test run using the button below.</p></div>
         </div><!-- /.box-body -->
-        <div class="box-body" ng-repeat="env in project.projectEnvironments">
-            <button type="button" class="btn btn-xs on-hover">Edit this environment</button>
+        <div class="box-body">
         </div><!-- /.box-body -->
         <div class="box-footer">
             <button type="button" class="btn btn-default" ui-sref="app.add-environment({projectId:project._id})">Create a new test run</button>
         </div><!-- box-footer -->
     </div><!-- /.box -->
+
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">Test cases</h3>
@@ -40,4 +41,6 @@
             <button type="button" class="btn btn-default">Manage team</button>
         </div><!-- box-footer -->
     </div><!-- /.box -->
+
+
 </div>

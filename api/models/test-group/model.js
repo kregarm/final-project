@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const Schema = new mongoose.Schema({
     name      : String,
     testCase  : { type : Object, ref:'test-case' },
-    project   : { type: Number, ref:'project'}
+    Project   : { type : Object, ref:'Project'}
 });
 
 mongoose.model('test-group', Schema);

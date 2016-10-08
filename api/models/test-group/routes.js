@@ -1,7 +1,6 @@
 const server = require('../../server').server;
 const mongoose = require('mongoose');
 const multer = require('multer');
-const crypto = require('crypto');
 const mime = require('mime');
 
 
@@ -10,16 +9,7 @@ module.exports = function () {
 
     server.post('/api/test-group', function (req, res) {
 
-        req.checkBody('name', 'Name is required').notEmpty();
-
-
-        var errors = req.validationErrors();
-
-        if (errors) {
-
-            return res.status(400).send(errors);
-
-        } else {
+        console.log(req.body);
 
             var data = req.body;
 
@@ -39,8 +29,20 @@ module.exports = function () {
                 }
 
             })
-
-        }
     });
 
+
+    server.get('/api/test-group', function (req, res) {
+
+        console.log('received');
+
+        const testGroup = mongoose.model('test-group');
+
+        testGroup.find({})
+            .populate('Project')
+            .exec(function (err, docs) {
+                res.send(docs);
+                console.log(docs);
+            });
+    });
 };
