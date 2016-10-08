@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="bower_components/AdminLTE/dist/css/AdminLTE.min.css" rel="stylesheet">
+    <link href="bower_components/AdminLTE/dist/css/skins/skin-black-light.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="app.less" type="text/css" rel="stylesheet/less">
+</head>
+<body class="skin-black-light">
+
+  <!-- Livereload script for development only (stripped during dist build) -->
+  <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
+
+  <!-- JS from Bower Components -->
+  <script src="bower_components/less.js/dist/less-1.6.2.js" data-concat="false"></script>
+  <script src="bower_components/jquery/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
+  <script src="bower_components/AdminLTE/dist/js/app.min.js"></script>
+  <!-- Add New Bower Component JS Above -->
+
+
+  <!-- Main App JS -->
+  <script src="app.js"></script>
+  <script src="partial/projects/projects.js"></script>
+  <script src="partial/sidebar/sidebar.js"></script>
+  <script src="partial/header/header.js"></script>
+  <script src="partial/new-project/new-project.js"></script>
+  <script src="service/project-service.js"></script>
+  <script src="partial/project-detail/project-detail.js"></script>
+  <script src="partial/add-environment/add-environment.js"></script>
+  <script src="partial/edit-environment/edit-environment.js"></script>
+  <script src="partial/project-testing/project-testing.js"></script>
+  <!-- Add New Component JS Above -->
+
+
+  <div class="cover-wrapper" ui-view="cover" ng-if="isCoverView"></div>
+
+
+
+      <header class="main-header" ui-view="header"></header>
+
+      <aside class="main-sidebar" ui-view="sidebar">
+
+      </aside>
+
+      <div ui-view="main" class="content-wrapper"></div>
+
+
+
+
+</body>
+</html>
