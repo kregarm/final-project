@@ -4,7 +4,8 @@ angular.module('app').factory('projectService',function($http) {
         model:{
             list: [],
             item: null,
-            testGroups:[]
+            testGroups:[],
+            testCases: []
         },
         createProject: function (data) {
             var promise = $http.post('http://localhost:3010/api/project', data);
@@ -91,6 +92,31 @@ angular.module('app').factory('projectService',function($http) {
 
                 projectService.model.testGroups = res.data;
 
+            });
+
+            return promise;
+        },
+        createTestCase: function (data) {
+            console.log(data);
+            var promise = $http.post('http://localhost:3010/api/test-case',  data);
+
+            return promise;
+        },
+        getCasesBasedOnGroups: function (id) {
+            var promise = $http.get('http://localhost:3010/api/test-case/' +  id);
+
+            promise.then(function (res) {
+
+            });
+            return promise;
+        },
+        getCasesBasedOnProject: function (id) {
+
+            var promise = $http.get('http://localhost:3010/api/test-cases-project/' +  id);
+
+            promise.then(function (res) {
+                projectService.model.testCases = res.data;
+                console.log('Model from service:' + projectService.model.testCases);
             });
 
             return promise;

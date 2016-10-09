@@ -10,7 +10,7 @@ module.exports = () => {
     require('./project/routes')();
 
     require('./test-case/model');
-    //require('./test-case/routes')();
+    require('./test-case/routes')();
 
     require('./test-run/model');
     //require('./test-run/routes')();

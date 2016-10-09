@@ -2,13 +2,14 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
 
     $scope.project = projectService.model.item;
     $scope.testGroups = projectService.model.testGroups;
+    $scope.testCases = projectService.model.testCases;
+    $scope.testCase = {};
 
     $scope.testGroup = {
         Project: $scope.project._id
     };
 
     $scope.createGroup = function () {
-        console.log($scope.testGroup);
         projectService.createTestGroup($scope.testGroup)
             .success(function () {
                 $scope.testGroup.name = '';
@@ -16,6 +17,24 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
                     .then(function () {
                         $scope.testGroups = projectService.model.testGroups;
                     });
+            }).error(function () {
+                console.log('nay');
+        });
+    };
+
+    $scope.createTestCase = function (testGroupId) {
+        $scope.testCase = {
+            testCaseName: $scope.testCase.testCaseName,
+            testGroup   : testGroupId,
+            Project     : $scope.project._id
+        };
+
+        projectService.createTestCase($scope.testCase)
+            .success(function () {
+                projectService.getCasesBasedOnProject($scope.project._id)
+                    .then(function () {
+                        $scope.testCases = projectService.model.testCases;
+                    })
             }).error(function () {
                 console.log('nay');
         });

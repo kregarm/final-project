@@ -105,7 +105,9 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 controller: 'ProjectTestingCtrl',
                 resolve: {
                     project: function (projectService, $stateParams) {
-                        return projectService.getOne($stateParams.projectId), projectService.getAllTestGroups($stateParams.projectId);
+                        return projectService.getOne($stateParams.projectId),
+                            projectService.getAllTestGroups($stateParams.projectId),
+                            projectService.getCasesBasedOnProject($stateParams.projectId);
                     }
                 }
             }

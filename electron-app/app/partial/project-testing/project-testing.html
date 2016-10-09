@@ -30,10 +30,20 @@
         </div><!-- /.box-body -->
 
         <div class="box-body" ng-repeat="group in testGroups"> <!-- /.ng-repeat for test sections -->
-            {{group.name}}
+            <h5>{{group.name}}</h5>
+            <div ng-repeat="case in testCases" class="test-case-margin">
+                <div ng-if="case.testGroup === group._id">
+                    <p class="test-case-name">{{case.testCaseName}}<i class="fa fa-trash-o test-case-icons"></i><i class="fa fa-edit test-case-icons"></i> </p>
+                </div>
+            </div>
+            <form class="form-inline test-case-form">
+                <div class="form-group">
+                    <input class="form-control test-case-form-input"  placeholder="Add a new test case" ng-model="testCase.testCaseName">
+                    <button type="submit" class="btn btn-xs btn-default" ng-click="createTestCase(group._id)">Add case</button>
+                </div>
+            </form>
         </div><!-- /.box-body -->
         <div class="box-footer">
-            <button type="button" class="btn btn-default">Manage team</button>
         </div><!-- box-footer -->
     </div><!-- /.box -->
 
