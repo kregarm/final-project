@@ -1,1 +1,29 @@
-{{testCase.testCaseName}}
+<br />
+<div class="col-md-8 col-md-offset-2">
+    <div class="box">
+        <div class="box-body">
+            <form>
+                <div class="form-group">
+                    <label for="testCaseName">Test case:</label>
+                    <input type="text" ng-model="testCase.testCaseName" class="form-control" id="testCaseName" placeholder="{{testCase.testCaseName}}">
+                </div>
+                <div class="form-group">
+                    <label for="instructions">Instructions:</label>
+                    <textarea class="form-control" ng-model="testCase.instructions" id="instructions" rows="3" placeholder="Add test steps, prerequisites, ..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="expectedResult">Expected result:</label>
+                    <textarea class="form-control" ng-model="testCase.expectedResult" id="expectedResult" rows="3" placeholder="What should happen"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">Image</label>
+                    <input type="file" id="exampleInputFile">
+                    <p class="help-block">Upload a logo of the new project or client</p>
+                </div>
+
+                <button class="btn btn-large btn-success" ng-click="updateTestCase()">Update this case</button>
+            </form>
+        </div><!-- /.box-body -->
+    </div><!-- /.box -->
+
+</div>

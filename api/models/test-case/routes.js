@@ -39,6 +39,38 @@ module.exports = function () {
         }
     });
 
+    server.put('/api/test-case/:testCaseId', function (req, res) {
+
+        var data = req.body;
+
+        const TestCase = mongoose.model('test-case');
+
+        TestCase.findByIdAndUpdate(req.params.testCaseId, data, {new:true}, function (err, doc) {
+
+            if (!err) {
+
+                doc.save(function (err, doc) {
+                    if (!err) {
+
+                        res.status(200).send(doc);
+
+                    } else {
+
+                        res.status(400).send(err);
+
+                    }
+                })
+
+            } else {
+
+                res.status(400).send(err);
+
+            }
+
+        });
+
+    });
+
     server.get('/api/test-cases-group/:testGroupId', function (req, res) {
 
         const TestCase = mongoose.model('test-case');

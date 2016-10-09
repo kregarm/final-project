@@ -121,7 +121,8 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 controller: 'EditTestCaseCtrl',
                 resolve:{
                     testCase: function (projectService, $stateParams) {
-                        return projectService.getOneTestCase($stateParams.testCaseId);
+                        return projectService.getOneTestCase($stateParams.testCaseId),
+                            projectService.getOne($stateParams.projectId);
                     }
                 }
             }

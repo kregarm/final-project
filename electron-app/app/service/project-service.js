@@ -5,7 +5,8 @@ angular.module('app').factory('projectService',function($http) {
             list: [],
             item: null,
             testGroups:[],
-            testCases: []
+            testCases: [],
+            testCase: null
         },
         createProject: function (data) {
             var promise = $http.post('http://localhost:3010/api/project', data);
@@ -108,7 +109,7 @@ angular.module('app').factory('projectService',function($http) {
 
             promise.then(function (res) {
 
-                projectService.model.item = res.data;
+                projectService.model.testCase = res.data;
 
             });
 
@@ -150,6 +151,13 @@ angular.module('app').factory('projectService',function($http) {
 
             });
             return promise;
+        },
+        updateTestCase: function (id, data) {
+
+            var promise = $http.put('http://localhost:3010/api/test-case/' + id, data);
+
+            return promise;
+
         }
     };
 
