@@ -39,7 +39,7 @@ module.exports = function () {
         }
     });
 
-    server.get('/api/test-case/:testGroupId', function (req, res) {
+    server.get('/api/test-cases-group/:testGroupId', function (req, res) {
 
         const TestCase = mongoose.model('test-case');
 
@@ -69,6 +69,28 @@ module.exports = function () {
         projectsId = req.params.projectId;
 
         TestCase.find({'Project' : projectsId}, function (err, docs) {
+
+            if (!err) {
+
+                res.status(200).send(docs);
+
+            } else {
+
+                res.status(400).send(err);
+
+            }
+
+        });
+
+    });
+
+    server.get('/api/test-case/:testCaseId', function (req, res) {
+
+        const TestCase = mongoose.model('test-case');
+
+        const caseId = req.params.testCaseId;
+
+        TestCase.findById(caseId, function (err, docs) {
 
             if (!err) {
                 console.log(docs);

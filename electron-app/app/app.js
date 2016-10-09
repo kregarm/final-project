@@ -113,6 +113,20 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
             }
         }
     });
+    $stateProvider.state('app.edit-test-case', {
+        url: '/:projectId/edit-test-case/:testCaseId',
+        views:{
+            'main@':{
+                templateUrl: 'partial/edit-test-case/edit-test-case.html',
+                controller: 'EditTestCaseCtrl',
+                resolve:{
+                    testCase: function (projectService, $stateParams) {
+                        return projectService.getOneTestCase($stateParams.testCaseId);
+                    }
+                }
+            }
+        }
+    });
     /* Add New States Above */
     $urlRouterProvider.otherwise('/projects');
 

@@ -102,8 +102,20 @@ angular.module('app').factory('projectService',function($http) {
 
             return promise;
         },
+        getOneTestCase:function (id) {
+
+            var promise = $http.get('http://localhost:3010/api/test-case/' + id);
+
+            promise.then(function (res) {
+
+                projectService.model.item = res.data;
+
+            });
+
+            return promise;
+        },
         getCasesBasedOnGroups: function (id) {
-            var promise = $http.get('http://localhost:3010/api/test-case/' +  id);
+            var promise = $http.get('http://localhost:3010/api/test-cases-group/' +  id);
 
             promise.then(function (res) {
 

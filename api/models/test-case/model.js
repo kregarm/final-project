@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const Schema = new mongoose.Schema({
     testCaseName    : String,
-    instruction     : String,
+    instructions    : String,
+    expectedResult  : String,
     image           : String,
     companyAccount  : { type:String, ref:'company-account' },
     Project         : { type:String, ref:'Project' },

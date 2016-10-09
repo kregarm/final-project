@@ -34,7 +34,7 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
                 projectService.getCasesBasedOnProject($scope.project._id)
                     .then(function () {
                         $scope.testCases = projectService.model.testCases;
-                    })
+                    });
             }).error(function () {
                 console.log('nay');
         });
@@ -42,6 +42,6 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
 
     $scope.deleteTestCase = function (testCaseId) {
         projectService.deleteTestCase(testCaseId);
-    }
+    };
 
 });
