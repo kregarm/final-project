@@ -40,4 +40,8 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
         });
     };
 
+    $scope.deleteTestCase = function (testCaseId) {
+        projectService.deleteTestCase(testCaseId);
+    }
+
 });

@@ -85,65 +85,11 @@ module.exports = function () {
 
     });
 
-    server.get('/api/project/:id', function (req, res) {
+    server.delete('/api/test-case/:testCaseId', function (req, res) {
 
-        const Project = mongoose.model('Project');
-        const projectId = req.params.id;
+        const TestCase = mongoose.model('test-case');
 
-        Project.findById(projectId, function (err, docs) {
-
-            if (!err) {
-
-                res.status(200).send(docs);
-
-            } else {
-
-                res.status(400).send(err);
-
-            }
-        })
-
-    });
-
-    server.put('/api/project/:id', function (req, res) {
-
-        var data = req.body;
-
-        const Project = mongoose.model('Project');
-
-        Project.findById(req.params.id, function (err, doc) {
-
-            if (!err) {
-
-                doc.projectEnvironments.push(data);
-
-                doc.save(function (err, doc) {
-                    if (!err) {
-
-                        res.status(200).send(doc);
-
-                    } else {
-
-                        res.status(400).send(err);
-
-                    }
-                })
-
-            } else {
-
-                res.status(400).send(err);
-
-            }
-
-        });
-
-    });
-
-    server.delete('/api/project/:id', function (req, res) {
-
-        const Project = mongoose.model('Project');
-
-        Project.findByIdAndRemove(req.params.id, function (err, docs) {
+        TestCase.findByIdAndRemove(req.params.testCaseId, function (err, docs) {
 
             if (!err) {
 
@@ -158,21 +104,4 @@ module.exports = function () {
         });
 
     });
-
-    server.get('/api/project-environment/:envId', function (req, res) {
-
-        const Project = mongoose.model('Project');
-
-        const envId = req.params.envId;
-
-        Project.findOne({"projectEnvironments.id" : envId },{'projectEnvironments.$': 1}, function (err, project) {
-            if(!err){
-                res.send(project.projectEnvironments[0]);
-            } else{
-                console.log(err);
-            }
-        })
-
-    });
-
 };

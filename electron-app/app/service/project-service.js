@@ -97,7 +97,7 @@ angular.module('app').factory('projectService',function($http) {
             return promise;
         },
         createTestCase: function (data) {
-            console.log(data);
+
             var promise = $http.post('http://localhost:3010/api/test-case',  data);
 
             return promise;
@@ -116,9 +116,27 @@ angular.module('app').factory('projectService',function($http) {
 
             promise.then(function (res) {
                 projectService.model.testCases = res.data;
-                console.log('Model from service:' + projectService.model.testCases);
             });
 
+            return promise;
+        },
+        deleteTestCase: function (id) {
+
+            var promise = $http.delete('http://localhost:3010/api/test-case/' + id);
+
+            promise.then(function (res) {
+
+                angular.forEach(projectService.model.testCases, function (testCase, i) {
+
+                    if (testCase._id === id) {
+
+                        projectService.model.testCases.splice(i, 1);
+
+                    }
+
+                });
+
+            });
             return promise;
         }
     };
