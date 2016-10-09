@@ -155,4 +155,20 @@ module.exports = function () {
 
     });
 
+    server.get('/api/project-environment/:envId', function (req, res) {
+
+        const Project = mongoose.model('Project');
+
+        const envId = req.params.envId;
+
+        Project.findOne({"projectEnvironments.id" : envId },{'projectEnvironments.$': 1}, function (err, project) {
+            if(!err){
+                res.send(project.projectEnvironments[0]);
+            } else{
+                console.log(err);
+            }
+        })
+
+    });
+
 };

@@ -29,13 +29,8 @@
             </form>
         </div><!-- /.box-body -->
 
-        <div class="box-body"> <!-- /.ng-repeat for test sections -->
-            <form class="form-inline">
-                <div class="form-group">
-                    <input class="form-control"  placeholder="Add a new test section">
-                    <button type="submit" class="btn btn-primary">Add section</button>
-                </div>
-            </form>
+        <div class="box-body" ng-repeat="group in testGroups"> <!-- /.ng-repeat for test sections -->
+            {{group.name}}
         </div><!-- /.box-body -->
         <div class="box-footer">
             <button type="button" class="btn btn-default">Manage team</button>

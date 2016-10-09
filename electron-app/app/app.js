@@ -1,4 +1,4 @@
-angular.module('app', ['ui.bootstrap','ui.utils','ui.router','ngAnimate']);
+angular.module('app', ['ui.bootstrap','ui.utils','ui.router','ngAnimate','angular-uuid']);
 
 angular.module('app').config(function($stateProvider, $urlRouterProvider) {
 
@@ -91,7 +91,7 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 controller: 'EditEnvironmentCtrl',
                 resolve: {
                     project: function (projectService, $stateParams) {
-                        return projectService.getOne($stateParams.projectId);
+                        return projectService.getOne($stateParams.projectId), projectService.getOneProjectEnv($stateParams.envId);
                     }
                 }
             }
@@ -105,7 +105,7 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 controller: 'ProjectTestingCtrl',
                 resolve: {
                     project: function (projectService, $stateParams) {
-                        return projectService.getOne($stateParams.projectId);
+                        return projectService.getOne($stateParams.projectId), projectService.getAllTestGroups($stateParams.projectId);
                     }
                 }
             }

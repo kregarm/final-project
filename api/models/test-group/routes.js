@@ -31,15 +31,24 @@ module.exports = function () {
             })
     });
 
-
     server.get('/api/test-group', function (req, res) {
-
-        console.log('received');
 
         const testGroup = mongoose.model('test-group');
 
         testGroup.find({})
             .populate('Project')
+            .exec(function (err, docs) {
+                res.send(docs);
+                console.log(docs);
+            });
+    });
+
+    server.get('/api/test-group/:projectId', function (req, res) {
+
+        const testGroup = mongoose.model('test-group');
+        const projectId = req.params.projectId;
+
+        testGroup.find({"Project" : projectId })
             .exec(function (err, docs) {
                 res.send(docs);
                 console.log(docs);

@@ -3,7 +3,8 @@ angular.module('app').factory('projectService',function($http) {
 	var projectService = {
         model:{
             list: [],
-            item: null
+            item: null,
+            testGroups:[]
         },
         createProject: function (data) {
             var promise = $http.post('http://localhost:3010/api/project', data);
@@ -68,6 +69,29 @@ angular.module('app').factory('projectService',function($http) {
         },
         createTestGroup: function (data) {
             var promise = $http.post('http://localhost:3010/api/test-group',  data);
+
+            return promise;
+        },
+        getOneProjectEnv: function (id) {
+            var promise = $http.get('http://localhost:3010/api/project-environment/' + id );
+
+            promise.then(function (res) {
+
+                projectService.model.item = res.data;
+
+            });
+
+            return promise;
+        },
+        getAllTestGroups: function (id) {
+
+            var promise = $http.get('http://localhost:3010/api/test-group/' + id );
+
+            promise.then(function (res) {
+
+                projectService.model.testGroups = res.data;
+
+            });
 
             return promise;
         }
