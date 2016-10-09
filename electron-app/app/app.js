@@ -91,7 +91,8 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 controller: 'EditEnvironmentCtrl',
                 resolve: {
                     project: function (projectService, $stateParams) {
-                        return projectService.getOne($stateParams.projectId), projectService.getOneProjectEnv($stateParams.envId);
+                        return projectService.getOne($stateParams.projectId),
+                               projectService.getOneProjectEnv($stateParams.envId);
                     }
                 }
             }
@@ -106,8 +107,8 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 resolve: {
                     project: function (projectService, $stateParams) {
                         return projectService.getOne($stateParams.projectId),
-                            projectService.getAllTestGroups($stateParams.projectId),
-                            projectService.getCasesBasedOnProject($stateParams.projectId);
+                               projectService.getAllTestGroups($stateParams.projectId),
+                               projectService.getCasesBasedOnProject($stateParams.projectId);
                     }
                 }
             }
@@ -122,7 +123,22 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 resolve:{
                     testCase: function (projectService, $stateParams) {
                         return projectService.getOneTestCase($stateParams.testCaseId),
-                            projectService.getOne($stateParams.projectId);
+                               projectService.getOne($stateParams.projectId);
+                    }
+                }
+            }
+        }
+    });
+    $stateProvider.state('app.new-test-run', {
+        url: '/:projectId/new-test-run',
+        views:{
+            'main@':{
+                templateUrl: 'partial/new-test-run/new-test-run.html',
+                controller: 'NewTestRunCtrl',
+                resolve:{
+                    project: function (projectService, $stateParams) {
+                           return projectService.getOne($stateParams.projectId),
+                                  projectService.getAllTestGroups($stateParams.projectId);
                     }
                 }
             }

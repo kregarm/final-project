@@ -1,0 +1,30 @@
+<div class="col-md-8 col-md-offset-2">
+
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">New test run</h3>
+            <div class="box-tools pull-right"></div>
+        </div><!-- /.box-header -->
+        <div class="box-body"> <!-- /.section -->
+            <form class="form-inline">
+                <h3>Name your test run</h3>
+                <div class="form-group">
+                    <input class="form-control"  placeholder="E2E test, regression, ..." ng-model="testRun.testRunName">
+                </div>
+            </form>
+        </div><!-- /.box-body -->
+        <div class="box-body" > <!-- /.section -->
+            <h3>Select the groups you want to test</h3>
+            <div  ng-repeat="group in testGroups">
+                <input type="checkbox"><p class="display-inline">{{group.name}}</p>
+                <div ng-repeat="case in testCases" class="test-case-margin"></div>
+            </div>
+        </div><!-- /.box-body -->
+        <div class="box-body">
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+            <button type="button" class="btn btn-default" ui-sref="app.new-test-run({projectId:project._id})">Create a new test run</button>
+        </div><!-- box-footer -->
+    </div><!-- /.box -->
+
+</div>

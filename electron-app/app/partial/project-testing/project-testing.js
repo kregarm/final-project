@@ -34,6 +34,7 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
                 projectService.getCasesBasedOnProject($scope.project._id)
                     .then(function () {
                         $scope.testCases = projectService.model.testCases;
+                        $scope.testCase.testCaseName = '';
                     });
             }).error(function () {
                 console.log('nay');
