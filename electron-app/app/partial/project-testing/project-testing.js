@@ -29,8 +29,6 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
             Project     : $scope.project._id
         };
 
-        console.log($scope.testCase);
-
         projectService.createTestCase($scope.testCase)
             .success(function () {
                 projectService.getCasesBasedOnProject($scope.project._id)

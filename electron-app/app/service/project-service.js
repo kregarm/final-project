@@ -201,8 +201,33 @@ angular.module('app').factory('projectService',function($http) {
             return promise;
 
         },
-        deleteEnvironment: function () {
+        deleteEnvironment: function (id) {
 
+            var promise = $http.delete('http://localhost:3010/api/project-environment/' +id );
+
+            promise.then(function (res) {
+
+                angular.forEach(projectService.model.environments, function (env, i) {
+
+                    if (env._id === id) {
+
+                        projectService.model.environments.splice(i, 1);
+
+                    }
+
+                });
+
+            });
+            return promise;
+
+            return promise;
+
+        },
+        updateEnvironment: function (data, id) {
+
+            var promise = $http.put('http://localhost:3010/api/project-environment/' + id, data);
+
+            return promise;
         }
     };
 

@@ -3,6 +3,8 @@ angular.module('app').controller('ProjectDetailCtrl',function($scope, projectSer
     $scope.project = projectService.model.item;
     $scope.environments = projectService.model.environments;
 
-    console.log($scope.environments);
+    $scope.deleteEnvironment = function (envId) {
+        projectService.deleteEnvironment(envId);
+    }
 
 });
