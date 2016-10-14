@@ -37,4 +37,13 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
         projectService.deleteTestCase(testCaseId);
     };
 
+    $scope.deleteTestGroup = function (groupId) {
+        projectService.deleteTestGroup(groupId);
+    };
+
+    $scope.updateGroup = function (data, id) {
+        //console.log(data, id);
+        projectService.updateTestGroup({name: data, id: id}, id);
+    };
+
 });

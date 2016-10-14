@@ -81,6 +81,12 @@ angular.module('app').factory('projectService',function($http) {
 
             return promise;
         },
+        updateTestGroup: function (data, id) {
+
+            var promise = $http.put('http://localhost:3010/api/test-group/' + id, data);
+            
+            return promise;
+        },
         getOneProjectEnv: function (id) {
             var promise = $http.get('http://localhost:3010/api/project-environment/' + id );
 
@@ -102,6 +108,24 @@ angular.module('app').factory('projectService',function($http) {
 
             });
 
+            return promise;
+        },
+        deleteTestGroup: function (id) {
+            var promise = $http.delete('http://localhost:3010/api/test-group/' + id);
+
+            promise.then(function (res) {
+
+                angular.forEach(projectService.model.testGroups, function (testGroup, i) {
+
+                    if (testGroup._id === id) {
+
+                        projectService.model.testGroups.splice(i, 1);
+
+                    }
+
+                });
+
+            });
             return promise;
         },
         createTestCase: function (data) {

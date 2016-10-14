@@ -54,4 +54,48 @@ module.exports = function () {
                 console.log(docs);
             });
     });
+
+    server.delete('/api/test-group/:groupId', function (req, res) {
+
+        const testGroup = mongoose.model('test-group');
+        const groupId = req.params.groupId;
+
+        testGroup.findByIdAndRemove(req.params.groupId, function (err, docs) {
+
+            if (!err) {
+
+                res.status(200).send(docs);
+
+            } else {
+
+                res.status(400).send(err);
+
+            }
+
+        });
+
+    });
+
+    server.put('/api/test-group/:groupId', function (req, res) {
+
+        var data = req.body;
+
+        console.log(data);
+
+        const testGroup = mongoose.model('test-group');
+
+        const groupId = req.params.groupId;
+
+        testGroup.findByIdAndUpdate(groupId, data, {new: true}, function (err, docs) {
+
+            if (!err) {
+                res.status(200).send(docs);
+            } else {
+                res.status(400).send(err);
+            }
+
+
+        });
+
+    });
 };

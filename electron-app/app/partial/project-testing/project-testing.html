@@ -30,10 +30,11 @@
         </div><!-- /.box-body -->
 
         <div class="box-body" ng-repeat="group in testGroups"> <!-- /.ng-repeat for test sections -->
-            <h5>{{group.name}}</h5>
+            <hr />
+            <h5 class="group" editable-text="group.name" onbeforesave="updateGroup($data, group._id)">{{group.name  || empty}}<i class="fa fa-edit test-case-icons" ></i><i class="fa fa-trash-o test-case-icons" ng-click="deleteTestGroup(group._id)"></i> </p></h5>
             <div ng-repeat="case in testCases" class="test-case-margin">
                 <div ng-if="case.testGroup === group._id">
-                    <p class="test-case-name">{{case.testCaseName}}<i class="fa fa-edit test-case-icons" ui-sref="app.edit-test-case({projectId:project._id, testCaseId:case._id})"></i><i class="fa fa-trash-o test-case-icons" ng-click="deleteTestCase(case._id)"></i> </p>
+                    <p class="test-case-name">{{case.testCaseName}}<i class="fa fa-edit test-case-icons" ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible" ui-sref="app.edit-test-case({projectId:project._id, testCaseId:case._id})"></i><i class="fa fa-trash-o test-case-icons" ng-click="deleteTestCase(case._id)"></i> </p>
                 </div>
             </div>
             <form class="form-inline test-case-form">
