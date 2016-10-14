@@ -1,15 +1,17 @@
-angular.module('app').controller('AddEnvironmentCtrl',function($scope, projectService, $state, uuid){
+angular.module('app').controller('AddEnvironmentCtrl',function($scope, projectService, $state){
 
     $scope.project = projectService.model.item;
-    $scope.project.projectEnvironments = {
-        'id': uuid.v4()
+    $scope.projectEnvironment = {
+        Project : $scope.project._id
     };
+
+    console.log($scope.project);
 
     $scope.saveEnvironment = function () {
 
-        console.log($scope.project.projectEnvironments);
+        console.log($scope.projectEnvironment);
 
-        projectService.updateProject($scope.project.projectEnvironments, $scope.project._id)
+        projectService.createNewEnvironment($scope.projectEnvironment, $scope.project._id)
             .success(function () {
                 $state.go('app.project-detail', {'projectId' : $scope.project._id} );
             }).error(function (res) {

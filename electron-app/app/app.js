@@ -1,4 +1,4 @@
-angular.module('app', ['ui.bootstrap','ui.utils','ui.router','ngAnimate','angular-uuid']);
+angular.module('app', ['ui.bootstrap','ui.utils','ui.router','ngAnimate','angular-uuid', "checklist-model"]);
 
 angular.module('app').config(function($stateProvider, $urlRouterProvider) {
 
@@ -60,10 +60,8 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 controller: 'ProjectDetailCtrl',
                 resolve:{
                     project:function(projectService, $stateParams){
-
-                        console.log($stateParams);
-                        return projectService.getOne($stateParams.projectId);
-
+                        return projectService.getOne($stateParams.projectId),
+                               projectService.getAllEnvironmentsBasedOnProject($stateParams.projectId);
                     }
                 }
             }
@@ -92,7 +90,7 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 resolve: {
                     project: function (projectService, $stateParams) {
                         return projectService.getOne($stateParams.projectId),
-                               projectService.getOneProjectEnv($stateParams.envId);
+                               projectService.getOneEnvironment($stateParams.envId);
                     }
                 }
             }

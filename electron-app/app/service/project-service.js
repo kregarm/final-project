@@ -6,7 +6,10 @@ angular.module('app').factory('projectService',function($http) {
             item: null,
             testGroups:[],
             testCases: [],
-            testCase: null
+            testCase: null,
+            testRun: null,
+            environments: [],
+            environment: null
         },
         createProject: function (data) {
             var promise = $http.post('http://localhost:3010/api/project', data);
@@ -157,6 +160,48 @@ angular.module('app').factory('projectService',function($http) {
             var promise = $http.put('http://localhost:3010/api/test-case/' + id, data);
 
             return promise;
+
+        },
+        createTestRun : function (data) {
+
+            var promise = $http.post('http://localhost:3010/api/test-run', data);
+
+            promise.then(function (res) {
+                projectService.model.testRun = res.data;
+            });
+
+            return promise;
+        },
+        createNewEnvironment: function (data) {
+
+            var promise = $http.post('http://localhost:3010/api/project-environment', data);
+
+            return promise;
+
+        },
+        getAllEnvironmentsBasedOnProject: function (id) {
+
+            var promise = $http.get('http://localhost:3010/api/project-environments/' +id );
+
+            promise.then(function (res) {
+                projectService.model.environments = res.data;
+            });
+
+            return promise;
+
+        },
+        getOneEnvironment: function (id) {
+
+            var promise = $http.get('http://localhost:3010/api/project-environment/' +id );
+
+            promise.then(function (res) {
+                projectService.model.environment = res.data;
+            });
+
+            return promise;
+
+        },
+        deleteEnvironment: function () {
 
         }
     };

@@ -4,23 +4,23 @@
             <form>
                 <div class="form-group">
                     <label for="environment-type">Environment type</label>
-                    <input ng-model="projectEnvironments.type" class="form-control" id="environment-type" placeholder="Staging, Demo, Production, ...">
+                    <input ng-model="environment.environmentType" class="form-control" id="environment-type" placeholder="Staging, Demo, Production, ...">
                 </div>
                 <div class="form-group">
                     <label for="environment-url">URL</label>
-                    <input ng-model="projectEnvironments.URL" class="form-control" id="environment-url" placeholder="http://staging-google.com">
+                    <input ng-model="environment.URL" class="form-control" id="environment-url" placeholder="http://staging-google.com">
                 </div>
                 <div class="form-group">
                     <label for="environment-username">Username</label>
-                    <input ng-model="projectEnvironments.username" class="form-control" id="environment-username" placeholder="user@test.com">
+                    <input ng-model="environment.username" class="form-control" id="environment-username" placeholder="user@test.com">
                 </div>
                 <div class="form-group">
                     <label for="environment-password">Password</label>
-                    <input ng-model="projectEnvironments.password" class="form-control" id="environment-password" placeholder="password1234">
+                    <input ng-model="environment.password" class="form-control" id="environment-password" placeholder="password1234">
                 </div>
                 <div class="form-group">
                     <label for="environment-description">Description</label>
-                    <textarea ng-model="projectEnvironments.description" class="form-control" id="environment-description" placeholder="What do you use this environment for?" rows="3"></textarea>
+                    <textarea ng-model="environment.description" class="form-control" id="environment-description" placeholder="What do you use this environment for?" rows="3"></textarea>
                 </div>
             </form>
         </div><!-- /.box-body -->

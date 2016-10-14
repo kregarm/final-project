@@ -15,15 +15,14 @@
         </div><!-- /.box-body -->
         <div class="box-body" > <!-- /.section -->
             <h3>Select the groups you want to test</h3>
-            <div  ng-repeat="group in testGroups">
-                <input type="checkbox"><p class="display-inline">{{group.name}}</p>
-                <div ng-repeat="case in testCases" class="test-case-margin"></div>
+            <div class="checkbox" ng-repeat="group in testGroups">
+                <label><input type="checkbox" checklist-model="testGroups.selected" checklist-value="group._id">{{group.name}}</label>
             </div>
         </div><!-- /.box-body -->
         <div class="box-body">
         </div><!-- /.box-body -->
         <div class="box-footer">
-            <button type="button" class="btn btn-default" ui-sref="app.new-test-run({projectId:project._id})">Create a new test run</button>
+            <button type="button" class="btn btn-default" ng-click="createTestRun()">Create a new test run</button>
         </div><!-- box-footer -->
     </div><!-- /.box -->
 

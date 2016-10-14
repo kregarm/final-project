@@ -1,6 +1,8 @@
 angular.module('app').controller('EditEnvironmentCtrl',function($scope, projectService){
 
-    $scope.projectEnvironments = projectService.model.item;
-    
+    $scope.environment = projectService.model.environment;
+
+
+
 
 });

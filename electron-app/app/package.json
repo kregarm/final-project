@@ -27,6 +27,7 @@
     "load-grunt-tasks": "~0.2"
   },
   "dependencies": {
-    "angular-uuid": "0.0.4"
+    "angular-uuid": "0.0.4",
+    "checklist-model": "^0.10.0"
   }
 }

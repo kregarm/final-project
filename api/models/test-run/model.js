@@ -5,10 +5,12 @@ const Schema = new mongoose.Schema({
     dateCreated     : { type:Date, default: Date.now },
     completed       : Boolean,
     companyAccount  : { type:String, ref:'company-account' },
+    testGroups      : [{ type:String, ref:'test-group'}],
     casesTested     : [
         {
-            testCase:{ type:String, ref:'test-case' },
-            comment: "String"
+            testCase    : { type:String, ref:'test-case' },
+            status      : String,
+            comment     : "String"
         }
 
     ]

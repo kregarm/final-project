@@ -6,16 +6,16 @@
             <h3 class="box-title">Environments</h3>
             <div class="box-tools pull-right"></div>
         </div><!-- /.box-header -->
-        <div class="box-body" ng-if="project.projectEnvironments.length === 0">
+        <div class="box-body" ng-if="environments.length === 0">
             <div><p>You currently don't have any environments defined. Add a new ENV using the button below.</p></div>
         </div><!-- /.box-body -->
-        <div class="box-body" ng-repeat="env in project.projectEnvironments">
+        <div class="box-body" ng-repeat="env in environments">
             <h4>{{env.type}}</h4>
             <p>URL: {{env.URL}}</p>
             <p>username: {{env.username}}</p>
             <p>password: {{env.password}}</p>
             <p>description: {{env.description}}</p>
-            <button type="button" class="btn btn-xs on-hover" ui-sref="app.edit-environment({projectId:project._id, envId:env.id})">Edit this environment</button>
+            <button type="button" class="btn btn-xs on-hover" ui-sref="app.edit-environment({projectId:project._id, envId:env._id})">Edit this environment</button>
         </div><!-- /.box-body -->
         <div class="box-footer">
             <button type="button" class="btn btn-default" ui-sref="app.add-environment({projectId:project._id})">Add a new ENV</button>
