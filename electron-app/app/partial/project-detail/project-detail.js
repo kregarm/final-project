@@ -5,6 +5,6 @@ angular.module('app').controller('ProjectDetailCtrl',function($scope, projectSer
 
     $scope.deleteEnvironment = function (envId) {
         projectService.deleteEnvironment(envId);
-    }
+    };
 
 });

@@ -75,6 +75,10 @@ angular.module('app').factory('projectService',function($http) {
         createTestGroup: function (data) {
             var promise = $http.post('http://localhost:3010/api/test-group',  data);
 
+            promise.then(function (res) {
+                projectService.model.testGroups.push(res.data);
+            });
+
             return promise;
         },
         getOneProjectEnv: function (id) {
@@ -103,6 +107,10 @@ angular.module('app').factory('projectService',function($http) {
         createTestCase: function (data) {
 
             var promise = $http.post('http://localhost:3010/api/test-case',  data);
+
+            promise.then(function (res) {
+                projectService.model.testCases.push(res.data);
+            });
 
             return promise;
         },
@@ -218,7 +226,6 @@ angular.module('app').factory('projectService',function($http) {
                 });
 
             });
-            return promise;
 
             return promise;
 

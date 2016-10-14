@@ -13,10 +13,6 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
         projectService.createTestGroup($scope.testGroup)
             .success(function () {
                 $scope.testGroup.name = '';
-                projectService.getAllTestGroups($scope.project._id)
-                    .then(function () {
-                        $scope.testGroups = projectService.model.testGroups;
-                    });
             }).error(function () {
                 console.log('nay');
         });
@@ -31,10 +27,7 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
 
         projectService.createTestCase($scope.testCase)
             .success(function () {
-                projectService.getCasesBasedOnProject($scope.project._id)
-                    .then(function () {
-                        $scope.testCases = projectService.model.testCases;
-                    });
+                $scope.testCase.testCaseName = '';
             }).error(function () {
                 console.log('nay');
         });
