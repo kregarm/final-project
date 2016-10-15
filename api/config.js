@@ -9,7 +9,7 @@ if(process.env.NODE_ENV ==='production'){
     console.log('Development environment set');
     config = require('./config.dev');
 } else {
-    throw new Error('Missing NODE_ENV);
+    throw new Error('Missing NODE_ENV');
 }
 
 module.exports = config;

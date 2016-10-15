@@ -72,14 +72,9 @@ body{
     -o-transition-property: none;
     transition-property: none;
 }
-/* Personal preference for BS modal.  The LESS below makes the backdrop white and
-   causes the modal to fade in rather than slide in. */
-//@modal-backdrop-bg: white;
-//.modal {
-//	&.fade {
-//		.transition(opacity .3s);
-//	}
-//	&.fade .modal-dialog {
-//		.translate(0,0);
-//	}
-//}
+.content-wrapper{
+
+    height: calc(~"100vh - 69px");
+    overflow-y: auto;
+
+}

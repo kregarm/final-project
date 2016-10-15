@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 
 const Schema = new mongoose.Schema({
     name      : String,
-    testCase  : { type : Object, ref:'test-case' },
     Project   : { type : Object, ref:'Project'}
 });
 

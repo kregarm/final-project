@@ -1,4 +1,6 @@
-angular.module('app', ['ui.bootstrap','ui.utils','ui.router','ngAnimate','checklist-model', 'xeditable', 'ngSanitize', 'ui.tinymce']);
+angular.module('app', ['ui.bootstrap','ui.utils','ui.router','checklist-model', 'xeditable', 'ngSanitize', 'ui.tinymce']);
+
+angular.module('app').constant('CONFIG',config);
 
 angular.module('app').config(function($stateProvider, $urlRouterProvider) {
 
@@ -112,6 +114,9 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                         return projectService.getOne($stateParams.projectId),
                                projectService.getAllTestGroups($stateParams.projectId),
                                projectService.getCasesBasedOnProject($stateParams.projectId);
+                    },
+                    testGroups: function(){
+                        return projectService.getAllTestGroups($stateParams.projectId);
                     }
                 }
             }

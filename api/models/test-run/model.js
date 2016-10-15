@@ -10,7 +10,7 @@ const Schema = new mongoose.Schema({
         {
             testCase    : { type:String, ref:'test-case' },
             status      : String,
-            comment     : "String"
+            comment     : String
         }
 
     ]

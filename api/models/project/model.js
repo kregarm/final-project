@@ -10,9 +10,6 @@ const Schema = new mongoose.Schema({
     ],
     projectDescription  : String,
     projectImage        : String,
-    projectEnvironments : [
-        {}
-    ],
     projectTools: [
         {
             toolName: String,

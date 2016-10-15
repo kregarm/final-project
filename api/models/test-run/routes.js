@@ -1,6 +1,7 @@
 const server = require('../../server').server;
 const mongoose = require('mongoose');
 const mime = require('mime');
+const _ = require('lodash');
 
 module.exports = function () {
 
@@ -9,11 +10,14 @@ module.exports = function () {
         req.checkBody('testRunName', 'Name is required').notEmpty();
         req.checkBody('testGroups', 'Groups are required').notEmpty();
 
+        console.log(req.body.testGroups);
+
 
         var errors = req.validationErrors();
 
         if (errors) {
 
+            console.log(errors);
             return res.status(400).send(errors);
 
         } else {
@@ -25,13 +29,17 @@ module.exports = function () {
 
             const TestCase = mongoose.model('test-case');
 
+            console.log('Should save');
+
             testRun.save(function (err, run) {
 
                 var runId = run._id;
 
                 if (!err) {
 
-                    for (var i = 0; i < run.testGroups.length; i++) {
+                    console.log('Should find');
+
+                    /*for (var i = 0; i < run.testGroups.length; i++) {
 
                         TestCase.find({'testGroup': run.testGroups[i]}, function (err, doc) {
 
@@ -46,7 +54,6 @@ module.exports = function () {
 
                                         run2.casesTested = listOfCases;
                                         run2.save(function (err, updatedRun) {
-                                            console.log()
                                         })
 
                                     });
@@ -60,9 +67,34 @@ module.exports = function () {
                             }
 
                         });
-                    };
+                    };*/
 
-                    //res.status(200).send(doc);
+                    const testGroups = data.testGroups;
+                    
+                    TestCase.find({ testGroup:{$in:testGroups}})
+                        .then((docs)=>{
+                            
+                            console.log(docs);
+                            
+                            const runCases = docs.map((caseDoc)=>{
+                               
+                                return {
+                                  testCase: caseDoc._id
+                                };
+                                
+                            });
+
+                            run.casesTested = runCases;
+
+                            console.log(run);
+
+                            run.save()
+                                .then(()=>{
+                                    console.log(run);
+                                    res.status(200).send(run);
+                                });
+
+                        });
 
                 } else {
 
@@ -75,123 +107,4 @@ module.exports = function () {
         }
     });
 
-    /*server.put('/api/test-case/:testCaseId', function (req, res) {
-
-     var data = req.body;
-
-     const TestCase = mongoose.model('test-case');
-
-     TestCase.findByIdAndUpdate(req.params.testCaseId, data, {new:true}, function (err, doc) {
-
-     if (!err) {
-
-     doc.save(function (err, doc) {
-     if (!err) {
-
-     res.status(200).send(doc);
-
-     } else {
-
-     res.status(400).send(err);
-
-     }
-     })
-
-     } else {
-
-     res.status(400).send(err);
-
-     }
-
-     });
-
-     });
-
-     server.get('/api/test-cases-group/:testGroupId', function (req, res) {
-
-     const TestCase = mongoose.model('test-case');
-
-     groupId = req.params.testGroupId;
-
-     TestCase.find({'testGroup' : groupId}, function (err, docs) {
-
-     if (!err) {
-     console.log(docs);
-
-     res.status(200).send(docs);
-
-     } else {
-
-     res.status(400).send(err);
-
-     }
-
-     });
-
-     });
-
-     server.get('/api/test-cases-project/:projectId', function (req, res) {
-
-     const TestCase = mongoose.model('test-case');
-
-     projectsId = req.params.projectId;
-
-     TestCase.find({'Project' : projectsId}, function (err, docs) {
-
-     if (!err) {
-
-     res.status(200).send(docs);
-
-     } else {
-
-     res.status(400).send(err);
-
-     }
-
-     });
-
-     });
-
-     server.get('/api/test-case/:testCaseId', function (req, res) {
-
-     const TestCase = mongoose.model('test-case');
-
-     const caseId = req.params.testCaseId;
-
-     TestCase.findById(caseId, function (err, docs) {
-
-     if (!err) {
-     console.log(docs);
-
-     res.status(200).send(docs);
-
-     } else {
-
-     res.status(400).send(err);
-
-     }
-
-     });
-
-     });
-
-     server.delete('/api/test-case/:testCaseId', function (req, res) {
-
-     const TestCase = mongoose.model('test-case');
-
-     TestCase.findByIdAndRemove(req.params.testCaseId, function (err, docs) {
-
-     if (!err) {
-
-     res.status(200).send(docs);
-
-     } else {
-
-     res.status(400).send(err);
-
-     }
-
-     });
-
-     });*/
 };

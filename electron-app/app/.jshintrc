@@ -12,6 +12,7 @@
     "browser": true,
     "smarttabs": true,
     "globals": {
+        "config":true,
         "jQuery": true,
         "angular": true,
         "console": true,

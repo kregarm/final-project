@@ -9,8 +9,6 @@ module.exports = function () {
 
     server.post('/api/test-group', function (req, res) {
 
-        console.log(req.body);
-
             var data = req.body;
 
             const Group = mongoose.model('test-group');
@@ -39,7 +37,6 @@ module.exports = function () {
             .populate('Project')
             .exec(function (err, docs) {
                 res.send(docs);
-                console.log(docs);
             });
     });
 
@@ -51,7 +48,6 @@ module.exports = function () {
         testGroup.find({"Project" : projectId })
             .exec(function (err, docs) {
                 res.send(docs);
-                console.log(docs);
             });
     });
 

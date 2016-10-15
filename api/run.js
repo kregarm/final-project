@@ -1,6 +1,8 @@
 const server = require('./server');
 const database = require('./database');
-//const config = require('./config');
+const config = require('./config');
+
+console.log(config);
 
 function init() {
 

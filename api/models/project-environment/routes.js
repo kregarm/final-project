@@ -147,7 +147,6 @@ module.exports = function () {
         ProjectEnvironment.find({'Project' : projectId}, function (err, docs) {
 
             if (!err) {
-                console.log(docs);
 
                 res.status(200).send(docs);
 
