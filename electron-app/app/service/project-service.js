@@ -9,7 +9,8 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
             testCase: null,
             testRun: null,
             environments: [],
-            environment: null
+            environment: null,
+            testRuns: []
         },
         createProject: function (data) {
             var promise = $http.post('http://localhost:3010/api/project', data);
@@ -259,6 +260,33 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
             var promise = $http.put('http://localhost:3010/api/project-environment/' + id, data);
 
             return promise;
+        },
+        getOneTestRun: function (id) {
+
+            var promise = $http.get('http://localhost:3010/api/test-run/' +id );
+
+            promise.then(function (res) {
+
+                projectService.model.testRun = res.data;
+
+            });
+
+
+            return promise;
+        },
+        getAllTestRunsBasedOnProject: function (id) {
+
+            var promise = $http.get('http://localhost:3010/api/test-run-project/' +id );
+
+            promise.then(function (res) {
+
+                projectService.model.testRuns = res.data;
+
+            });
+
+
+            return promise;
+
         }
     };
 

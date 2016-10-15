@@ -122,6 +122,9 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                     },
                     testCases: function (projectService, $stateParams) {
                         return projectService.getCasesBasedOnProject($stateParams.projectId);
+                    },
+                    testRuns: function (projectService, $stateParams) {
+                        return projectService.getAllTestRunsBasedOnProject($stateParams.projectId);
                     }
 
                 }
@@ -171,6 +174,23 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 resolve:{
                     project: function (projectService, $stateParams) {
                         return projectService.getOne($stateParams.projectId);
+                    }
+                }
+            }
+        }
+    });
+    $stateProvider.state('app.test-run', {
+        url: '/:projectId/test-run/:testRunId',
+        views:{
+            'main@':{
+                templateUrl: 'partial/test-run/test-run.html',
+                controller: 'TestRunCtrl',
+                resolve:{
+                    project: function (projectService, $stateParams) {
+                        return projectService.getOne($stateParams.projectId);
+                    },
+                    testRun: function (projectService, $stateParams) {
+                        return projectService.getOneTestRun($stateParams.testRunId);
                     }
                 }
             }

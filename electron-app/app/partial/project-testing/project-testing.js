@@ -3,8 +3,11 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
     $scope.project = projectService.model.item;
     $scope.testGroups = projectService.model.testGroups;
     $scope.testCases = projectService.model.testCases;
+    $scope.testRuns = projectService.model.testRuns;
     $scope.testCase = {};
 
+
+    console.log($scope.testRuns);
     $scope.testGroup = {
         Project: $scope.project._id
     };

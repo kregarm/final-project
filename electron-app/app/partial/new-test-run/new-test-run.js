@@ -1,4 +1,4 @@
-angular.module('app').controller('NewTestRunCtrl',function($scope, projectService){
+angular.module('app').controller('NewTestRunCtrl',function($scope, projectService, $state){
 
     $scope.project = projectService.model.item;
     $scope.testGroups = projectService.model.testGroups;
@@ -10,13 +10,15 @@ angular.module('app').controller('NewTestRunCtrl',function($scope, projectServic
 
         var newTestRun = {
             'testRunName' :  $scope.testRun.testRunName,
+            'projectId': $scope.project._id,
             testGroups : $scope.testGroups.selected
         };
 
         projectService.createTestRun(newTestRun)
-            .success(function () {
-                var run = projectService.model.testRun;
-                console.log(run);
+            .success(function (res) {
+                console.log(res._id);
+                var newId = res._id;
+                $state.go('app.test-run', {'projectId' : $scope.project._id, 'testRunId': newId } );
             });
     };
 });

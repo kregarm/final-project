@@ -5,10 +5,17 @@
             <h3 class="box-title">Test runs</h3>
             <div class="box-tools pull-right"></div>
         </div><!-- /.box-header -->
-        <div class="box-body">
-            <div><p>Test run was not yet started. Add a new test run using the button below.</p></div>
+        <div class="box-body" ng-if="testRuns.length===0">
+            <div>
+                <p>Test run was not yet started. Add a new test run using the button below.</p>
+            </div>
         </div><!-- /.box-body -->
         <div class="box-body">
+            <h5>Your previous runs</h5>
+            <div ng-repeat="run in testRuns">
+                {{run.testRunName}}
+                <p class="help-block">Created at {{run.dateCreated  | date: "dd.MM.y"}}</p>
+            </div>
         </div><!-- /.box-body -->
         <div class="box-footer">
             <button type="button" class="btn btn-default" ui-sref="app.new-test-run({projectId:project._id})">Create a new test run</button>

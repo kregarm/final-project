@@ -5,8 +5,6 @@ angular.module('app').controller('AddEnvironmentCtrl',function($scope, projectSe
         Project : $scope.project._id
     };
 
-    console.log($scope.project);
-
     $scope.saveEnvironment = function () {
 
         console.log($scope.projectEnvironment);
