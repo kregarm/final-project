@@ -1,21 +1,19 @@
 <div class="col-md-8 col-md-offset-2">
-<div class="box" ng-repeat="project in projects">
-    <div class="box-header with-border">
-        <h3 class="box-title" ui-sref="app.project-detail({projectId:project._id})">{{project.projectName}}</h3>
-        <div class="box-tools pull-right">
-            <!-- Buttons, labels, and many other things can be placed here! -->
-            <!-- Here is a label for example -->
-            <span class="label label-primary">Label</span>
-        </div><!-- /.box-tools -->
-    </div><!-- /.box-header -->
-    <div class="box-body">
-        {{project.projectDescription}}
-    </div><!-- /.box-body -->
-    <div class="box-footer">
-        <button type="button" class="btn btn-default" ui-sref="app.project-detail({projectId:project._id})">General</button>
-        <button class="btn btn-md btn-danger" ng-click="deleteProject(project._id)">delete</button>
-    </div><!-- box-footer -->
-</div><!-- /.box -->
-
-<div class="btn btn-box-tool" ui-sref="app.new-project">add a project</div>
+    <div class="box" ng-repeat="project in projects | filter:search:strict">
+        <div class="box-header with-border">
+            <h3 class="box-title" ui-sref="app.project-detail({projectId:project._id})">{{project.projectName}}</h3>
+            <div class="box-tools pull-right">
+                <!-- Buttons, labels, and many other things can be placed here! -->
+                <!-- Here is a label for example -->
+                <i class="fa fa-edit test-case-icons display-inline" ng-click="textBtnForm.$show()"ui-sref="app.edit-test-case({projectId:project._id, testCaseId:case._id})"></i>
+                <i class="fa fa-trash-o test-case-icons display-inline" ng-click="deleteProject(project._id)"></i>
+            </div><!-- /.box-tools -->
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            {{project.projectDescription}}
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+            <button type="button" class="btn btn-primary" ui-sref="app.project-detail({projectId:project._id})">General</button>
+        </div><!-- box-footer -->
+    </div><!-- /.box -->
 </div>

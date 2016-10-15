@@ -84,7 +84,7 @@ angular.module('app').factory('projectService',function($http) {
         updateTestGroup: function (data, id) {
 
             var promise = $http.put('http://localhost:3010/api/test-group/' + id, data);
-            
+            w
             return promise;
         },
         getOneProjectEnv: function (id) {

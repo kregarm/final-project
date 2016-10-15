@@ -17,18 +17,23 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
         }
     });
 
-    $stateProvider.state('projects', {
+    $stateProvider.state('list', {
         abstract: true,
         views: {
             header:{
                 templateUrl: 'partial/header/header.html',
                 controller: 'HeaderCtrl'
+            },
+            sidebar:{
+                templateUrl: 'partial/list-sidebar/list-sidebar.html',
+                controller: 'ListSidebarCtrl'
             }
             //add login resolve
         }
     });
 
-    $stateProvider.state('projects.projects', {
+
+    $stateProvider.state('list.projects', {
         url: '/projects',
         views: {
             'main@': {
@@ -43,7 +48,7 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
             }
         }
     });
-    $stateProvider.state('app.new-project', {
+    $stateProvider.state('list.new-project', {
         url: '/new-project',
         views:{
             'main@':{

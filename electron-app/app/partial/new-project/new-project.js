@@ -7,7 +7,7 @@ angular.module('app').controller('NewProjectCtrl',function($scope, projectServic
         projectService.createProject($scope.project)
             .success(function () {
 
-                $state.go('projects.projects');
+                $state.go('list.projects');
 
             }).error(function (err) {
 
