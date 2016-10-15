@@ -56,14 +56,34 @@
           <file leaf-file-name="projects.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/electron-app/app/partial/projects/projects.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="4" column="24" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="24" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="79" selection-start-line="0" selection-start-column="79" selection-end-line="0" selection-end-column="79" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="edit-project.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="header.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/electron-app/app/partial/header/header.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="87" selection-start-line="0" selection-start-column="87" selection-end-line="0" selection-end-column="87" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/electron-app/app/partial/header/header.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="15">
+                  <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="edit-project.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/electron-app/app/partial/edit-project/edit-project.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="60">
@@ -78,26 +98,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="165">
                   <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="project-testing.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/electron-app/app/partial/project-testing/project-testing.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="36" column="328" selection-start-line="36" selection-start-column="67" selection-end-line="36" selection-end-column="328" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="app.less" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/electron-app/app/app.less">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="282">
-                  <caret line="67" column="1" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
@@ -175,8 +175,6 @@
         <option value="$PROJECT_DIR$/electron-app/main.js" />
         <option value="$PROJECT_DIR$/electron-app/app/partial/general/general.html" />
         <option value="$PROJECT_DIR$/api/server.js" />
-        <option value="$PROJECT_DIR$/electron-app/app/partial/projects/projects.js" />
-        <option value="$PROJECT_DIR$/electron-app/app/partial/header/header.js" />
         <option value="$PROJECT_DIR$/api/models/project/model.js" />
         <option value="$PROJECT_DIR$/electron-app/app/partial/sidebar/sidebar.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -202,7 +200,6 @@
         <option value="$PROJECT_DIR$/electron-app/app/index.html" />
         <option value="$PROJECT_DIR$/electron-app/app/partial/project-testing/project-testing.html" />
         <option value="$PROJECT_DIR$/electron-app/app/partial/project-testing/project-testing.js" />
-        <option value="$PROJECT_DIR$/electron-app/app/partial/header/header.html" />
         <option value="$PROJECT_DIR$/electron-app/app/partial/sidebar/sidebar.html" />
         <option value="$PROJECT_DIR$/electron-app/app/partial/list-sidebar/list-sidebar.html" />
         <option value="$PROJECT_DIR$/electron-app/app/app.less" />
@@ -214,6 +211,9 @@
         <option value="$PROJECT_DIR$/electron-app/app/service/project-service.js" />
         <option value="$PROJECT_DIR$/electron-app/app/partial/edit-project/edit-project.html" />
         <option value="$PROJECT_DIR$/electron-app/app/partial/edit-project/edit-project.js" />
+        <option value="$PROJECT_DIR$/electron-app/app/partial/projects/projects.js" />
+        <option value="$PROJECT_DIR$/electron-app/app/partial/header/header.html" />
+        <option value="$PROJECT_DIR$/electron-app/app/partial/header/header.js" />
       </list>
     </option>
   </component>
@@ -348,33 +348,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="new-project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="final-project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="final-project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="electron-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="edit-project" />
+              <option name="myItemId" value="header" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -467,12 +441,12 @@
       <workItem from="1475076603631" duration="3761000" />
       <workItem from="1475326260499" duration="6776000" />
       <workItem from="1475593462970" duration="13268000" />
-      <workItem from="1475688549349" duration="47952000" />
+      <workItem from="1475688549349" duration="48790000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81417000" />
+    <option name="totallyTimeSpent" value="82255000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -624,14 +598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/electron-app/app/partial/header/header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -822,14 +788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/electron-app/app/partial/header/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/electron-app/app/partial/sidebar/sidebar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -898,14 +856,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/electron-app/app/partial/projects/projects.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/models/project/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1080">
@@ -944,6 +894,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/electron-app/app/partial/projects/projects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="79" selection-start-line="0" selection-start-column="79" selection-end-line="0" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/electron-app/app/partial/header/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/electron-app/app/partial/header/header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="87" selection-start-line="0" selection-start-column="87" selection-end-line="0" selection-end-column="87" />
           <folding />
         </state>
       </provider>
