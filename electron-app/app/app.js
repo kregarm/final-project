@@ -67,8 +67,10 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 controller: 'ProjectDetailCtrl',
                 resolve:{
                     project:function(projectService, $stateParams){
-                        return projectService.getOne($stateParams.projectId),
-                               projectService.getAllEnvironmentsBasedOnProject($stateParams.projectId);
+                        return projectService.getOne($stateParams.projectId);
+                    },
+                    envs: function (projectService, $stateParams) {
+                        return projectService.getAllEnvironmentsBasedOnProject($stateParams.projectId);
                     }
                 }
             }
@@ -96,8 +98,10 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 controller: 'EditEnvironmentCtrl',
                 resolve: {
                     project: function (projectService, $stateParams) {
-                        return projectService.getOne($stateParams.projectId),
-                               projectService.getOneEnvironment($stateParams.envId);
+                        return projectService.getOne($stateParams.projectId);
+                    },
+                    env: function (projectService, $stateParams) {
+                        return projectService.getOneEnvironment($stateParams.envId);
                     }
                 }
             }
@@ -111,13 +115,15 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 controller: 'ProjectTestingCtrl',
                 resolve: {
                     project: function (projectService, $stateParams) {
-                        return projectService.getOne($stateParams.projectId),
-                               projectService.getAllTestGroups($stateParams.projectId),
-                               projectService.getCasesBasedOnProject($stateParams.projectId);
+                        return projectService.getOne($stateParams.projectId);
                     },
-                    testGroups: function(){
+                    testGroups: function(projectService, $stateParams){
                         return projectService.getAllTestGroups($stateParams.projectId);
+                    },
+                    testCases: function (projectService, $stateParams) {
+                        return projectService.getCasesBasedOnProject($stateParams.projectId);
                     }
+
                 }
             }
         }
@@ -130,8 +136,10 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 controller: 'EditTestCaseCtrl',
                 resolve:{
                     testCase: function (projectService, $stateParams) {
-                        return projectService.getOneTestCase($stateParams.testCaseId),
-                               projectService.getOne($stateParams.projectId);
+                        return projectService.getOneTestCase($stateParams.testCaseId);
+                    },
+                    project: function (projectService, $stateParams) {
+                        return projectService.getOne($stateParams.projectId);
                     }
                 }
             }
@@ -145,8 +153,10 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
                 controller: 'NewTestRunCtrl',
                 resolve:{
                     project: function (projectService, $stateParams) {
-                           return projectService.getOne($stateParams.projectId),
-                                  projectService.getAllTestGroups($stateParams.projectId);
+                        return projectService.getOne($stateParams.projectId);
+                    },
+                    testGroups: function (projectService, $stateParams) {
+                        return projectService.getAllTestGroups($stateParams.projectId);
                     }
                 }
             }
