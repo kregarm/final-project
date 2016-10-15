@@ -8,7 +8,7 @@
                 </div>
                 <div class="form-group">
                     <label for="projectDescription">Describe it:</label>
-                    <textarea class="form-control" ng-model="project.projectDescription" id="projectDescription" rows="3" placeholder="What is this project about?"></textarea>
+                    <textarea class="form-control" ui-tinymce ng-model="project.projectDescription" id="projectDescription" rows="3" placeholder="What is this project about?"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputFile">Image</label>
@@ -16,7 +16,7 @@
                     <p class="help-block">Upload a logo of the new project or client</p>
                 </div>
 
-                <button class="btn btn-large btn-success" ng-click="updateProject()">Create this project</button>
+                <button class="btn btn-large btn-success" ng-click="updateProject()">Update this project</button>
             </form>
         </div><!-- /.box-body -->
     </div><!-- /.box -->

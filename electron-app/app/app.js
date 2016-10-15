@@ -1,4 +1,4 @@
-angular.module('app', ['ui.bootstrap','ui.utils','ui.router','ngAnimate','checklist-model', 'xeditable']);
+angular.module('app', ['ui.bootstrap','ui.utils','ui.router','ngAnimate','checklist-model', 'xeditable', 'ngSanitize', 'ui.tinymce']);
 
 angular.module('app').config(function($stateProvider, $urlRouterProvider) {
 

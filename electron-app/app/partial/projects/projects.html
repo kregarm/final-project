@@ -9,7 +9,7 @@
                 <i class="fa fa-trash-o test-case-icons display-inline" ng-click="deleteProject(project._id)"></i>
             </div><!-- /.box-tools -->
         </div><!-- /.box-header -->
-        <div class="box-body">
+        <div class="box-body" ng-bind-html="project.projectDescription">
             {{project.projectDescription}}
         </div><!-- /.box-body -->
         <div class="box-footer">

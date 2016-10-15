@@ -14,7 +14,7 @@
             <p>URL: {{env.URL}}</p>
             <p>username: {{env.username}}</p>
             <p>password: {{env.password}}</p>
-            <p>description: {{env.description}}</p>
+            <p ng-bind-html="env.description">description: {{env.description}}</p>
         </div><!-- /.box-body -->
         <div class="box-footer">
             <button type="button" class="btn btn-default" ui-sref="app.add-environment({projectId:project._id})">Add a new ENV</button>
