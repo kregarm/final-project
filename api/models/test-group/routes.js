@@ -80,8 +80,6 @@ module.exports = function () {
 
         var data = req.body;
 
-        console.log(data);
-
         const testGroup = mongoose.model('test-group');
 
         const groupId = req.params.groupId;

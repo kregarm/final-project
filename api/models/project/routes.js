@@ -101,36 +101,20 @@ module.exports = function () {
 
     });
 
-    server.put('/api/project/:id', function (req, res) {
+    server.put('/api/project/:projectId', function (req, res) {
 
         var data = req.body;
+        var projectId = req.params.projectId;
 
         const Project = mongoose.model('Project');
 
-        Project.findById(req.params.id, function (err, doc) {
+        Project.findByIdAndUpdate(projectId, data, {new: true}, function (err, docs) {
 
             if (!err) {
-
-                doc.projectEnvironments.push(data);
-
-                doc.save(function (err, doc) {
-                    if (!err) {
-
-                        res.status(200).send(doc);
-
-                    } else {
-
-                        res.status(400).send(err);
-
-                    }
-                })
-
+                res.status(200).send(docs);
             } else {
-
                 res.status(400).send(err);
-
             }
-
         });
 
     });

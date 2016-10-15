@@ -1,0 +1,24 @@
+<div class="col-md-8 col-md-offset-2">
+    <div class="box">
+        <div class="box-body">
+            <form>
+                <div class="form-group">
+                    <label for="projectName">Name this project:</label>
+                    <input type="text" ng-model="project.projectName" class="form-control" id="projectName" placeholder="Give your new project a name">
+                </div>
+                <div class="form-group">
+                    <label for="projectDescription">Describe it:</label>
+                    <textarea class="form-control" ng-model="project.projectDescription" id="projectDescription" rows="3" placeholder="What is this project about?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">Image</label>
+                    <input type="file" id="exampleInputFile">
+                    <p class="help-block">Upload a logo of the new project or client</p>
+                </div>
+
+                <button class="btn btn-large btn-success" ng-click="updateProject()">Create this project</button>
+            </form>
+        </div><!-- /.box-body -->
+    </div><!-- /.box -->
+
+</div>

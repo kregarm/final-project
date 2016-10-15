@@ -147,6 +147,20 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
             }
         }
     });
+    $stateProvider.state('list.edit-project', {
+        url: '/edit-project/:projectId',
+        views:{
+            'main@':{
+                templateUrl: 'partial/edit-project/edit-project.html',
+                controller: 'EditProjectCtrl',
+                resolve:{
+                    project: function (projectService, $stateParams) {
+                        return projectService.getOne($stateParams.projectId);
+                    }
+                }
+            }
+        }
+    });
     /* Add New States Above */
     $urlRouterProvider.otherwise('/projects');
 
