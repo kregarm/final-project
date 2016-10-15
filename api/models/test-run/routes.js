@@ -49,7 +49,9 @@ module.exports = function () {
                             const runCases = docs.map((caseDoc)=>{
 
                                 return {
-                                      testCase: caseDoc._id
+                                      testCase: caseDoc._id,
+                                      comment: '',
+                                      status: ''
                                 };
 
                             });
@@ -81,7 +83,7 @@ module.exports = function () {
         const testRunId = req.params.testRunId;
 
         testRun.find({'_id':testRunId})
-            .deepPopulate('casesTested.testCase')
+            .deepPopulate('casesTested.testCase testGroups')
             .exec(function (err, docs) {
                 res.send(docs);
             });

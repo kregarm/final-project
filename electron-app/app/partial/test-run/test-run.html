@@ -1,15 +1,31 @@
-<div class="box-body" ng-repeat="group in testRun.testGroups"> <!-- /.ng-repeat for test sections -->
-    <hr />
-    <h5 class="group">{{group.name }}</h5>
-    <div ng-repeat="case in testRun.casesTested" class="test-case-margin">
-        <div ng-if="case.testGroup === group._id">
-            <p class="test-case-name">{{case.testCaseName}}</p>
-        </div>
-    </div>
-    <form class="form-inline test-case-form">
-        <div class="form-group">
-            <input class="form-control test-case-form-input"  placeholder="Add a new test case" ng-model="testCase.testCaseName">
-            <button type="submit" class="btn btn-xs btn-default" ng-click="createTestCase(group._id)">Add case</button>
-        </div>
-    </form>
-</div><!-- /.box-body -->
+<div class="col-md-8 col-md-offset-2">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">{{testRun.testRunName}}</h3>
+            <div class="box-tools pull-right"></div>
+        </div><!-- /.box-header -->
+        <div class="box-body" ng-repeat="group in testRun.testGroups">
+            <div ng-repeat="case in testRun.casesTested">
+                <div ng-if="group._id === case.testCase.testGroup">
+                    <div class="test-case-test-run">
+                        <h5 class="test-case-name">{{case.testCase.testCaseName}}</h5>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Dropdown
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Skipped</a></li>
+                                <li><a href="#">Passed</a></li>
+                                <li><a href="#">Failed</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+            <button type="button" class="btn btn-primary" ">Finish this run</button>
+        </div><!-- box-footer -->
+    </div><!-- /.box -->
+</div>

@@ -1,6 +1,11 @@
 angular.module('app').controller('TestRunCtrl',function($scope, projectService){
 
-    $scope.testRun = projectService.model.testRun;
+    var testRun = projectService.model.testRun;
 
-    console.log($scope.testRun);
+    for(var i = 0; i < testRun.length; i++){
+        $scope.testRun = testRun[i];
+        console.log($scope.testRun);
+    }
+
+
 });
