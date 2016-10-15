@@ -142,7 +142,7 @@ module.exports = function () {
 
         const ProjectEnvironment = mongoose.model('project-environment');
 
-        projectId = req.params.projectId;
+        const projectId = req.params.projectId;
 
         ProjectEnvironment.find({'Project' : projectId}, function (err, docs) {
 
@@ -155,7 +155,6 @@ module.exports = function () {
                 res.status(400).send(err);
 
             }
-
         });
 
     });

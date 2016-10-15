@@ -14,7 +14,7 @@
             <h5>Your previous runs</h5>
             <div ng-repeat="run in testRuns">
                 {{run.testRunName}}
-                <p class="help-block">Created at {{run.dateCreated  | date: "dd.MM.y"}}</p>
+                <p class="help-block">Created at {{run.dateCreated  | date: "dd.MM.y"}} <btn class="btn btn-xs btn-default">See details</btn></p>
             </div>
         </div><!-- /.box-body -->
         <div class="box-footer">
