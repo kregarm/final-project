@@ -1,11 +1,11 @@
-angular.module('app').factory('authService',function($timeout, $rootScope, $http, dataService, $localForage, $state) {
+angular.module('app').factory('authService',function($timeout, $rootScope, $http, dataService, $localForage, $state, NET) {
 
     var authService = {
         isLoggedIn: function () {
 console.log('Is logged in');
             return authService.getToken()
                 .then(function () {
-                    return $http.post('http://localhost:3010/api/account/checkLogin')
+                    return $http.post(NET.API_URL+'/api/account/checkLogin')
                         .then(function (res) {
                             console.log('is logged in');
                             console.log('User:',dataService.model.user);
@@ -28,7 +28,7 @@ console.log('Is logged in');
 
             console.log(userData);
 
-            return $http.post('http://localhost:3010/api/account/login', userData)
+            return $http.post(NET.API_URL+'/api/account/login', userData)
                 .then(function (res) {
 
                     $rootScope.isLoggedIn = true;
@@ -72,7 +72,7 @@ console.log('Is logged in');
         },
         logout: function () {
 
-            return $http.get('http://localhost:3010/api/account/logout')
+            return $http.get(NET.API_URL+'/api/account/logout')
                 .then(function () {
                     return $localForage.clear();
                 });
@@ -80,7 +80,7 @@ console.log('Is logged in');
         },
         forgotten: function (email) {
 
-            return $http.post('http://localhost:3010/api/account/forgotten', {email: email})
+            return $http.post(NET.API_URL+'/api/account/forgotten', {email: email})
                 .then(function (res) {
 
                     return res.data;
@@ -90,7 +90,7 @@ console.log('Is logged in');
         },
         confirmReset: function (key, password) {
 
-            return $http.post('http://localhost:3010/api/account/reset-password', {key: key, password: password})
+            return $http.post(NET.API_URL+'/api/account/reset-password', {key: key, password: password})
                 .then(function (res) {
                     return res.data;
                 });

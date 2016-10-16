@@ -1,6 +1,3 @@
-/**
- * Created by martinkregar on 15/10/16.
- */
-var config = {
-
+var APP_CONFIG = {
+    API_URL:'http://martinkregar.com:3010'
 };

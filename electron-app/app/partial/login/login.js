@@ -4,7 +4,7 @@ angular.module('app').controller('LoginCtrl',function($scope, authService, $stat
         email:null,
         password:null
     };
-
+    
     $scope.loginClick = function(){
 
         authService.login($scope.user)

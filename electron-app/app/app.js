@@ -1,7 +1,6 @@
 angular.module('app', ['ui.bootstrap','ui.utils','ui.router','checklist-model', 'xeditable', 'ngSanitize', 'ui.tinymce', 'LocalForageModule']);
-
 angular.module('app').constant('CONFIG',config);
-
+angular.module('app').constant('NET',{API_URL:config.API_URL});
 angular.module('app').config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
     $stateProvider.state('app', {

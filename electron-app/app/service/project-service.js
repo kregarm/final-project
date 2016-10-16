@@ -1,4 +1,4 @@
-angular.module('app').factory('projectService',function($http, CONFIG) {
+angular.module('app').factory('projectService',function($http, NET) {
 
 	var projectService = {
         model:{
@@ -13,12 +13,12 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
             testRuns: []
         },
         createProject: function (data) {
-            var promise = $http.post('http://localhost:3010/api/project', data);
+            var promise = $http.post(NET.API_URL+'/api/project', data);
             return promise;
         },
         getProjects: function (cb) {
 
-            var promise = $http.get('http://localhost:3010/api/project');
+            var promise = $http.get(NET.API_URL+'/api/project');
 
             promise.then(function (res) {
 
@@ -35,7 +35,7 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         deleteProject: function (id) {
 
-            var promise = $http.delete('http://localhost:3010/api/project/' + id);
+            var promise = $http.delete(NET.API_URL+'/api/project/' + id);
 
             promise.then(function (res) {
 
@@ -56,7 +56,7 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         getOne: function (id) {
 
-            var promise = $http.get('http://localhost:3010/api/project/' + id);
+            var promise = $http.get(NET.API_URL+'/api/project/' + id);
 
             promise.then(function (res) {
 
@@ -69,12 +69,12 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         updateProject: function (data, id) {
 
-            var promise = $http.put('http://localhost:3010/api/project/' + id, data);
+            var promise = $http.put(NET.API_URL+'/api/project/' + id, data);
 
             return promise;
         },
         createTestGroup: function (data) {
-            var promise = $http.post('http://localhost:3010/api/test-group',  data);
+            var promise = $http.post(NET.API_URL+'/api/test-group',  data);
 
             promise.then(function (res) {
                 projectService.model.testGroups.push(res.data);
@@ -84,12 +84,12 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         updateTestGroup: function (data, id) {
 
-            var promise = $http.put('http://localhost:3010/api/test-group/' + id, data);
+            var promise = $http.put(NET.API_URL+'/api/test-group/' + id, data);
 
             return promise;
         },
         getOneProjectEnv: function (id) {
-            var promise = $http.get('http://localhost:3010/api/project-environment/' + id );
+            var promise = $http.get(NET.API_URL+'/api/project-environment/' + id );
 
             promise.then(function (res) {
 
@@ -101,7 +101,7 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         getAllTestGroups: function (id) {
 
-            var promise = $http.get('http://localhost:3010/api/test-group/' + id );
+            var promise = $http.get(NET.API_URL+'/api/test-group/' + id );
 
             promise.then(function (res) {
 
@@ -112,7 +112,7 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
             return promise;
         },
         deleteTestGroup: function (id) {
-            var promise = $http.delete('http://localhost:3010/api/test-group/' + id);
+            var promise = $http.delete(NET.API_URL+'/api/test-group/' + id);
 
             promise.then(function (res) {
 
@@ -131,7 +131,7 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         createTestCase: function (data) {
 
-            var promise = $http.post('http://localhost:3010/api/test-case',  data);
+            var promise = $http.post(NET.API_URL+'/api/test-case',  data);
 
             promise.then(function (res) {
                 projectService.model.testCases.push(res.data);
@@ -141,7 +141,7 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         getOneTestCase:function (id) {
 
-            var promise = $http.get('http://localhost:3010/api/test-case/' + id);
+            var promise = $http.get(NET.API_URL+'/api/test-case/' + id);
 
             promise.then(function (res) {
 
@@ -152,7 +152,7 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
             return promise;
         },
         getCasesBasedOnGroups: function (id) {
-            var promise = $http.get('http://localhost:3010/api/test-cases-group/' +  id);
+            var promise = $http.get(NET.API_URL+'/api/test-cases-group/' +  id);
 
             promise.then(function (res) {
 
@@ -161,7 +161,7 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         getCasesBasedOnProject: function (id) {
 
-            var promise = $http.get('http://localhost:3010/api/test-cases-project/' +  id);
+            var promise = $http.get(NET.API_URL+'/api/test-cases-project/' +  id);
 
             promise.then(function (res) {
                 projectService.model.testCases = res.data;
@@ -171,7 +171,7 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         deleteTestCase: function (id) {
 
-            var promise = $http.delete('http://localhost:3010/api/test-case/' + id);
+            var promise = $http.delete(NET.API_URL+'/api/test-case/' + id);
 
             promise.then(function (res) {
 
@@ -190,14 +190,14 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         updateTestCase: function (id, data) {
 
-            var promise = $http.put('http://localhost:3010/api/test-case/' + id, data);
+            var promise = $http.put(NET.API_URL+'/api/test-case/' + id, data);
 
             return promise;
 
         },
         createTestRun : function (data) {
 
-            var promise = $http.post('http://localhost:3010/api/test-run', data);
+            var promise = $http.post(NET.API_URL+'/api/test-run', data);
 
             promise.then(function (res) {
                 projectService.model.testRun = res.data;
@@ -207,14 +207,14 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         createNewEnvironment: function (data) {
 
-            var promise = $http.post('http://localhost:3010/api/project-environment', data);
+            var promise = $http.post(NET.API_URL+'/api/project-environment', data);
 
             return promise;
 
         },
         getAllEnvironmentsBasedOnProject: function (id) {
 
-            var promise = $http.get('http://localhost:3010/api/project-environments/' +id );
+            var promise = $http.get(NET.API_URL+'/api/project-environments/' +id );
 
             promise.then(function (res) {
                 projectService.model.environments = res.data;
@@ -225,7 +225,7 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         getOneEnvironment: function (id) {
 
-            var promise = $http.get('http://localhost:3010/api/project-environment/' +id );
+            var promise = $http.get(NET.API_URL+'/api/project-environment/' +id );
 
             promise.then(function (res) {
                 projectService.model.environment = res.data;
@@ -236,7 +236,7 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         deleteEnvironment: function (id) {
 
-            var promise = $http.delete('http://localhost:3010/api/project-environment/' +id );
+            var promise = $http.delete(NET.API_URL+'/api/project-environment/' +id );
 
             promise.then(function (res) {
 
@@ -257,13 +257,13 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         updateEnvironment: function (data, id) {
 
-            var promise = $http.put('http://localhost:3010/api/project-environment/' + id, data);
+            var promise = $http.put(NET.API_URL+'/api/project-environment/' + id, data);
 
             return promise;
         },
         getOneTestRun: function (id) {
 
-            var promise = $http.get('http://localhost:3010/api/test-run/' +id );
+            var promise = $http.get(NET.API_URL+'/api/test-run/' +id );
 
             promise.then(function (res) {
 
@@ -276,7 +276,7 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         getAllTestRunsBasedOnProject: function (id) {
 
-            var promise = $http.get('http://localhost:3010/api/test-run-project/' +id );
+            var promise = $http.get(NET.API_URL+'/api/test-run-project/' +id );
 
             promise.then(function (res) {
 
@@ -290,7 +290,7 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
         },
         updateTestCaseWithinRun: function (testCaseId, testRunId, data) {
 
-            return $http.put('http://localhost:3010/api/test-case/'+testCaseId+'/test-run/' +testRunId, data);
+            return $http.put(NET.API_URL+'/api/test-case/'+testCaseId+'/test-run/' +testRunId, data);
 
         }
     };
