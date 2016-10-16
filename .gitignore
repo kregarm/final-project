@@ -1,3 +1,4 @@
 api/node_modules
 electron-app/app/bower_components
 electron-app/app/node_modules
+electron-app/node_modules
