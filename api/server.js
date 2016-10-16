@@ -13,7 +13,7 @@ exports.init = function () {
         server.use(bodyParser.urlencoded({extended:true}));
         server.use(expressValidator());
         server.use(cors());
-        server.listen(3010, function () {
+        server.listen(3011, function () {
 
             console.log('Server started');
             resolve();
