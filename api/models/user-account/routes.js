@@ -67,7 +67,7 @@ module.exports = function () {
 
     });
 
-    server.post('/api/account', auth, function (req, res) {
+    server.post('/api/account', function (req, res) {
 
         req.checkBody('email', 'Not a valid email').isEmail();
         req.checkBody('password', 'Not a valid password').notEmpty().isLength({min:8});
