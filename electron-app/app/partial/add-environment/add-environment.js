@@ -13,7 +13,12 @@ angular.module('app').controller('AddEnvironmentCtrl',function($scope, projectSe
             .success(function () {
                 $state.go('app.project-detail', {'projectId' : $scope.project._id} );
             }).error(function (res) {
-            console.log(res);
+            $scope.errors = [];
+
+            for (var i in res) {
+
+                $scope.errors.push(res[i].msg);
+            }
         });
 
     };

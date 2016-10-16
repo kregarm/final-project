@@ -10,26 +10,33 @@ module.exports = function () {
 
     server.post('/api/test-group', auth, function (req, res) {
 
-        console.log(req.body);
 
-            var data = req.body;
+            req.checkBody('name', 'Name is required').notEmpty();
+            var errors = req.validationErrors();
 
-            const Group = mongoose.model('test-group');
-            const group = new Group(data);
+            if (errors) {
+    
+                return res.status(400).send(errors);
+    
+            } else {
+        
+                const Group = mongoose.model('test-group');
+                const group = new Group(req.body);
 
-            group.save(function (err, doc) {
+                group.save(function (err, doc) {
 
-                if (!err) {
+                    if (!err) {
 
-                    res.status(200).send(doc);
+                        res.status(200).send(doc);
 
-                } else {
+                    } else {
 
-                    res.status(400).send(err);
+                        res.status(400).send(err);
 
-                }
-
-            })
+                    }
+                });
+            }
+                
     });
 
     server.get('/api/test-group', auth, function (req, res) {
@@ -79,22 +86,34 @@ module.exports = function () {
 
     server.put('/api/test-group/:groupId', auth, function (req, res) {
 
-        var data = req.body;
+        req.checkBody('name', 'Name is required').notEmpty();
+        console.log('name is: ', req.body.name);
 
-        const testGroup = mongoose.model('test-group');
+        var errors = req.validationErrors();
 
-        const groupId = req.params.groupId;
+        if (errors) {
 
-        testGroup.findByIdAndUpdate(groupId, data, {new: true}, function (err, docs) {
+            return res.status(400).send(errors);
 
-            if (!err) {
-                res.status(200).send(docs);
-            } else {
-                res.status(400).send(err);
-            }
+        } else {
+
+            var data = req.body;
+
+            const testGroup = mongoose.model('test-group');
+
+            const groupId = req.params.groupId;
+
+            testGroup.findByIdAndUpdate(groupId, data, {new: true}, function (err, docs) {
+
+                if (!err) {
+                    res.status(200).send(docs);
+                } else {
+                    res.status(400).send(err);
+                }
 
 
-        });
+            });
+        }
 
     });
 };

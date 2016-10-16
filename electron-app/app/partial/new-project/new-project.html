@@ -10,12 +10,11 @@
                     <label for="projectDescription">Describe it:</label>
                     <textarea class="form-control" ui-tinymce ng-model="project.projectDescription" id="projectDescription" rows="3" placeholder="What is this project about?"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputFile">Image</label>
-                    <input type="file" id="exampleInputFile">
-                    <p class="help-block">Upload a logo of the new project or client</p>
+                <div class="error-handling">
+                    <div ng-model="errors" ng-repeat="error in errors">
+                        <p>{{error}}</p>
+                    </div>
                 </div>
-
                 <button class="btn btn-large btn-success" ng-click="createProject()">Create this project</button>
             </form>
         </div><!-- /.box-body -->

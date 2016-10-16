@@ -11,7 +11,12 @@ angular.module('app').controller('NewProjectCtrl',function($scope, projectServic
 
             }).error(function (err) {
 
-                console.log(err);
+            $scope.errors = [];
+
+            for (var i in err) {
+
+                $scope.errors.push(err[i].msg);
+            }
 
         });
     };

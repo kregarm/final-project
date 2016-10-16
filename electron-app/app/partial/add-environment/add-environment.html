@@ -23,6 +23,11 @@
                     <textarea ng-model="projectEnvironment.description" ui-tinymce class="form-control" id="environment-description" placeholder="What do you use this environment for?" rows="3"></textarea>
                 </div>
             </form>
+            <div class="error-handling">
+                <div ng-model="errors" ng-repeat="error in errors">
+                    <p>{{error}}</p>
+                </div>
+            </div>
         </div><!-- /.box-body -->
         <div class="box-footer">
             <button type="button" class="btn btn-success" ng-click="saveEnvironment()">Save this environment</button>

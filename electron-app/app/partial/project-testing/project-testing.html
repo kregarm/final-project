@@ -32,6 +32,11 @@
                 <div class="form-group">
                     <input class="form-control"  placeholder="Add a new test section" ng-model="testGroup.name">
                     <button type="submit" class="btn btn-primary" ng-click="createGroup()">Add section</button>
+                    <div class="error-handling">
+                        <div ng-model="errors" ng-repeat="error in errors">
+                            <p>{{error}}</p>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div><!-- /.box-body -->

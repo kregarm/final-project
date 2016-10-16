@@ -16,8 +16,14 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
         projectService.createTestGroup($scope.testGroup)
             .success(function () {
                 $scope.testGroup.name = '';
-            }).error(function () {
-                console.log('nay');
+                $scope.errors = [];
+            }).error(function (res) {
+                $scope.errors = [];
+
+                for (var i in res) {
+
+                    $scope.errors.push(res[i].msg);
+                }
         });
     };
 
@@ -31,8 +37,13 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
         projectService.createTestCase($scope.testCase)
             .success(function () {
                 $scope.testCase.testCaseName = '';
-            }).error(function () {
-                console.log('nay');
+            }).error(function (res) {
+                $scope.errors2 = [];
+
+                for (var j in res) {
+
+                    $scope.errors2.push(res[j].msg);
+                }
         });
     };
 
@@ -45,8 +56,18 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
     };
 
     $scope.updateGroup = function (data, id) {
-        //console.log(data, id);
-        projectService.updateTestGroup({name: data, id: id}, id);
+        projectService.updateTestGroup({name: data, id: id}, id)
+            .success(function () {
+                $scope.errors3 = [];
+            })
+            .error(function (res) {
+                $scope.errors3 = [];
+
+                for (var k in res) {
+
+                    $scope.errors3.push(res[k].msg);
+                };
+            })
     };
 
 });

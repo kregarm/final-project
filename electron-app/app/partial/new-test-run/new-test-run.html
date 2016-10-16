@@ -20,6 +20,11 @@
             </div>
         </div><!-- /.box-body -->
         <div class="box-body">
+            <div class="error-handling">
+                <div ng-model="errors" ng-repeat="error in errors">
+                    <p>{{error}}</p>
+                </div>
+            </div>
         </div><!-- /.box-body -->
         <div class="box-footer">
             <button type="button" class="btn btn-default" ng-click="createTestRun()">Create a new test run</button>
