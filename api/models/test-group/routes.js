@@ -2,12 +2,13 @@ const server = require('../../server').server;
 const mongoose = require('mongoose');
 const multer = require('multer');
 const mime = require('mime');
+const auth = require('../../helpers/auth/middleware');
 
 
 
 module.exports = function () {
 
-    server.post('/api/test-group', function (req, res) {
+    server.post('/api/test-group', auth, function (req, res) {
 
         console.log(req.body);
 
@@ -31,7 +32,7 @@ module.exports = function () {
             })
     });
 
-    server.get('/api/test-group', function (req, res) {
+    server.get('/api/test-group', auth, function (req, res) {
 
         const testGroup = mongoose.model('test-group');
 
@@ -43,7 +44,7 @@ module.exports = function () {
             });
     });
 
-    server.get('/api/test-group/:projectId', function (req, res) {
+    server.get('/api/test-group/:projectId', auth, function (req, res) {
 
         const testGroup = mongoose.model('test-group');
         const projectId = req.params.projectId;
@@ -55,7 +56,7 @@ module.exports = function () {
             });
     });
 
-    server.delete('/api/test-group/:groupId', function (req, res) {
+    server.delete('/api/test-group/:groupId', auth, function (req, res) {
 
         const testGroup = mongoose.model('test-group');
         const groupId = req.params.groupId;
@@ -76,7 +77,7 @@ module.exports = function () {
 
     });
 
-    server.put('/api/test-group/:groupId', function (req, res) {
+    server.put('/api/test-group/:groupId', auth, function (req, res) {
 
         var data = req.body;
 

@@ -1,10 +1,11 @@
 const server = require('../../server').server;
 const mongoose = require('mongoose');
 const mime = require('mime');
+const auth = require('../../helpers/auth/middleware');
 
 module.exports = function () {
 
-    server.post('/api/test-case', function (req, res) {
+    server.post('/api/test-case', auth, function (req, res) {
 
         req.checkBody('testCaseName', 'Name is required').notEmpty();
 
@@ -39,7 +40,7 @@ module.exports = function () {
         }
     });
 
-    server.put('/api/test-case/:testCaseId', function (req, res) {
+    server.put('/api/test-case/:testCaseId', auth, function (req, res) {
 
         var data = req.body;
 
@@ -71,7 +72,7 @@ module.exports = function () {
 
     });
 
-    server.get('/api/test-cases-group/:testGroupId', function (req, res) {
+    server.get('/api/test-cases-group/:testGroupId', auth, function (req, res) {
 
         const TestCase = mongoose.model('test-case');
 
@@ -94,7 +95,7 @@ module.exports = function () {
 
     });
 
-    server.get('/api/test-cases-project/:projectId', function (req, res) {
+    server.get('/api/test-cases-project/:projectId', auth, function (req, res) {
 
         const TestCase = mongoose.model('test-case');
 
@@ -116,7 +117,7 @@ module.exports = function () {
 
     });
 
-    server.get('/api/test-case/:testCaseId', function (req, res) {
+    server.get('/api/test-case/:testCaseId', auth, function (req, res) {
 
         const TestCase = mongoose.model('test-case');
 
@@ -139,7 +140,7 @@ module.exports = function () {
 
     });
 
-    server.delete('/api/test-case/:testCaseId', function (req, res) {
+    server.delete('/api/test-case/:testCaseId', auth, function (req, res) {
 
         const TestCase = mongoose.model('test-case');
 

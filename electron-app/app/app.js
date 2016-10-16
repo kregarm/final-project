@@ -1,8 +1,8 @@
-angular.module('app', ['ui.bootstrap','ui.utils','ui.router','checklist-model', 'xeditable', 'ngSanitize', 'ui.tinymce']);
+angular.module('app', ['ui.bootstrap','ui.utils','ui.router','checklist-model', 'xeditable', 'ngSanitize', 'ui.tinymce', 'LocalForageModule']);
 
 angular.module('app').constant('CONFIG',config);
 
-angular.module('app').config(function($stateProvider, $urlRouterProvider) {
+angular.module('app').config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
     $stateProvider.state('app', {
         abstract: true,
@@ -14,8 +14,12 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
             sidebar:{
                 templateUrl: 'partial/sidebar/sidebar.html',
                 controller: 'SidebarCtrl'
+            },
+            resolve:{
+                loggedIn:function (authService) {
+                    return authService.isLoggedIn();
+                }
             }
-            //add login resolve
         }
     });
 
@@ -29,8 +33,12 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
             sidebar:{
                 templateUrl: 'partial/list-sidebar/list-sidebar.html',
                 controller: 'ListSidebarCtrl'
+            },
+            resolve:{
+                loggedIn:function (authService) {
+                    return authService.isLoggedIn();
+                }
             }
-            //add login resolve
         }
     });
 
@@ -196,12 +204,66 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
             }
         }
     });
+    $stateProvider.state('login', {
+        url: '/login',
+        views:{
+            cover:{
+                templateUrl: 'partial/login/login.html',
+                controller: 'LoginCtrl'
+            }
+        }
+    });
     /* Add New States Above */
-    $urlRouterProvider.otherwise('/projects');
+    $urlRouterProvider.otherwise('/login');
 
+    $httpProvider.interceptors.push('requestInterceptorService');
 });
 
-angular.module('app').run(function($rootScope) {
+
+angular.module('app').run(function($rootScope, dataService) {
+
+    $rootScope.hasPermission = function(path, method){
+
+        var allow = false;
+
+        angular.forEach(dataService.model.userPermissions, function(permission){
+
+            if(permission.path === path && _.includes(permission.methods, method)){
+                allow = true;
+            }
+
+        });
+
+        return allow;
+
+    };
+
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams, options){
+
+        console.log(toState);
+
+        switch(toState.name){
+            case 'login':
+                $rootScope.isCoverView = true;
+                break;
+            case 'register':
+                $rootScope.isCoverView = true;
+                break;
+            case 'confirm-registration':
+                $rootScope.isCoverView = true;
+                break;
+            case 'forgotten':
+                $rootScope.isCoverView = true;
+                break;
+            case 'reset':
+                $rootScope.isCoverView = true;
+                break;
+            default:
+                $rootScope.isCoverView = false;
+                break;
+        }
+
+    });
 
     $rootScope.safeApply = function(fn) {
         var phase = $rootScope.$$phase;

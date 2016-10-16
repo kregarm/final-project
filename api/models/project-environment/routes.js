@@ -1,10 +1,11 @@
 const server = require('../../server').server;
 const mongoose = require('mongoose');
+const auth = require('../../helpers/auth/middleware');
 
 
 module.exports = function () {
 
-    server.get('/api/project-environment', function (req, res) {
+    server.get('/api/project-environment', auth, function (req, res) {
 
         const ProjectEnvironment = mongoose.model('project-environment');
 
@@ -24,7 +25,7 @@ module.exports = function () {
 
     });
 
-    server.delete('/api/project-environment/:id', function (req, res) {
+    server.delete('/api/project-environment/:id', auth, function (req, res) {
 
         const ProjectEnvironment = mongoose.model('project-environment');
 
@@ -44,7 +45,7 @@ module.exports = function () {
 
     });
 
-    server.put('/api/project-environment/:id', function (req, res) {
+    server.put('/api/project-environment/:id', auth, function (req, res) {
 
         req.checkBody('environmentType', 'Type is required').notEmpty();
         req.checkBody('URL', 'URL is required').notEmpty();
@@ -79,7 +80,7 @@ module.exports = function () {
 
     });
 
-    server.post('/api/project-environment', function (req, res) {
+    server.post('/api/project-environment', auth, function (req, res) {
 
         req.checkBody('environmentType', 'Type is required').notEmpty();
         req.checkBody('URL', 'URL is required').notEmpty();
@@ -116,7 +117,7 @@ module.exports = function () {
 
     });
 
-    server.get('/api/project-environment/:id', (req, res)=> {
+    server.get('/api/project-environment/:id', auth, (req, res)=> {
 
         const envId = req.params.id;
 
@@ -138,7 +139,7 @@ module.exports = function () {
 
     });
 
-    server.get('/api/project-environments/:projectId', function (req, res) {
+    server.get('/api/project-environments/:projectId', auth, function (req, res) {
 
         const ProjectEnvironment = mongoose.model('project-environment');
 

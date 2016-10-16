@@ -7,8 +7,8 @@
                 <i class="fa fa-folder-o"></i> <span>General</span>
             </a>
         </li>
-        <li>
-            <a href="#">
+        <li ng-click="notification()">
+            <a href>
                 <i class="fa fa-heartbeat"></i> <span>Health</span>
             </a>
         </li>
@@ -28,7 +28,7 @@
     </ul>
     <hr />
     <ul class="sidebar-menu">
-        <li  ui-sref="list.projects">
+        <li  ui-sref="list.projects" ng-click="logoutClick()">
             <a href="#">
                 <i class="fa fa-sign-out"></i> <span>Sign out</span>
             </a>

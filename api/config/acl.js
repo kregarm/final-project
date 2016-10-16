@@ -237,6 +237,15 @@ const list = [
                 methods:['get','put','post','delete']
             }
         ]
+    },
+    {
+        path:'/api/project-environments(/:id)',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
     }
 
 ];

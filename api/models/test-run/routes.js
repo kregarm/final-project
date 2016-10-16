@@ -2,12 +2,13 @@ const server = require('../../server').server;
 const mongoose = require('mongoose');
 const mime = require('mime');
 const _ = require('lodash');
+const auth = require('../../helpers/auth/middleware');
 
 var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 module.exports = function () {
 
-    server.post('/api/test-run', function (req, res) {
+    server.post('/api/test-run', auth, function (req, res) {
 
         req.checkBody('testRunName', 'Name is required').notEmpty();
         req.checkBody('testGroups', 'Groups are required').notEmpty();
@@ -77,7 +78,7 @@ module.exports = function () {
         }
     });
 
-    server.get('/api/test-run/:testRunId', function (req, res) {
+    server.get('/api/test-run/:testRunId', auth, function (req, res) {
 
         const testRun = mongoose.model('test-run');
 
@@ -92,7 +93,7 @@ module.exports = function () {
 
     });
 
-    server.get('/api/test-run-project/:projectId', function (req, res) {
+    server.get('/api/test-run-project/:projectId', auth, function (req, res) {
 
         const testRun = mongoose.model('test-run');
 
@@ -105,7 +106,7 @@ module.exports = function () {
 
     });
 
-    server.put('/api/test-case-test-run/:testCaseId', function (req, res) {
+    server.put('/api/test-case-test-run/:testCaseId', auth, function (req, res) {
 
 
         const testRun = mongoose.model('test-run');

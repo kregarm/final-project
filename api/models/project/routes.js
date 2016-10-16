@@ -26,7 +26,7 @@ module.exports = function () {
 
     });
 
-    server.post('/api/project', function (req, res) {
+    server.post('/api/project', auth, function (req, res) {
 
         req.checkBody('projectName', 'Name is required').notEmpty();
         req.checkBody('projectDescription', 'Description is required').notEmpty();
@@ -102,7 +102,7 @@ module.exports = function () {
 
     });
 
-    server.put('/api/project/:projectId', function (req, res) {
+    server.put('/api/project/:projectId', auth,  function (req, res) {
 
         var data = req.body;
         var projectId = req.params.projectId;
@@ -120,7 +120,7 @@ module.exports = function () {
 
     });
 
-    server.delete('/api/project/:id', function (req, res) {
+    server.delete('/api/project/:id', auth, function (req, res) {
 
         const Project = mongoose.model('Project');
 

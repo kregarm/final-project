@@ -23,6 +23,7 @@
     "less.js": "~1.6",
     "font-awesome": "~4.0",
     "angular-xeditable": "^0.4.0",
-    "angular-sanitize": "^1.5.8"
+    "angular-sanitize": "^1.5.8",
+    "localforage": "^1.4.3"
   }
 }
