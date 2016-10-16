@@ -138,7 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/electron-app/app/partial/edit-test-case/edit-test-case.html" />
         <option value="$PROJECT_DIR$/api/models/project/model.js" />
         <option value="$PROJECT_DIR$/api/models/test-group/model.js" />
         <option value="$PROJECT_DIR$/api/config.js" />
@@ -189,6 +188,7 @@
         <option value="$PROJECT_DIR$/electron-app/app/service/project-service.js" />
         <option value="$PROJECT_DIR$/api/models/user-account/routes.js" />
         <option value="$PROJECT_DIR$/api/config.prod.js" />
+        <option value="$PROJECT_DIR$/api/package.json" />
       </list>
     </option>
   </component>
@@ -733,12 +733,12 @@
       <workItem from="1475076603631" duration="3761000" />
       <workItem from="1475326260499" duration="6776000" />
       <workItem from="1475593462970" duration="13268000" />
-      <workItem from="1475688549349" duration="91351000" />
+      <workItem from="1475688549349" duration="91531000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124816000" />
+    <option name="totallyTimeSpent" value="124996000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
