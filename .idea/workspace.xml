@@ -21,16 +21,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="projects.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/electron-app/app/partial/projects/projects.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="79" selection-start-line="0" selection-start-column="79" selection-end-line="0" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/models/test-case/routes.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -41,11 +31,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/models/user-account/routes.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
               <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.prod.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/config.prod.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -135,7 +135,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/electron-app/app/partial/projects/projects.html" />
         <option value="$PROJECT_DIR$/electron-app/app/partial/edit-test-case/edit-test-case.html" />
         <option value="$PROJECT_DIR$/api/models/project/model.js" />
         <option value="$PROJECT_DIR$/api/models/test-group/model.js" />
@@ -186,6 +185,7 @@
         <option value="$PROJECT_DIR$/electron-app/app/service/auth-service.js" />
         <option value="$PROJECT_DIR$/electron-app/app/service/project-service.js" />
         <option value="$PROJECT_DIR$/api/models/user-account/routes.js" />
+        <option value="$PROJECT_DIR$/api/config.prod.js" />
       </list>
     </option>
   </component>
@@ -730,12 +730,12 @@
       <workItem from="1475076603631" duration="3761000" />
       <workItem from="1475326260499" duration="6776000" />
       <workItem from="1475593462970" duration="13268000" />
-      <workItem from="1475688549349" duration="90937000" />
+      <workItem from="1475688549349" duration="91070000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124402000" />
+    <option name="totallyTimeSpent" value="124535000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -804,14 +804,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/api/models/project-environment/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/models/test-group/model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1227,6 +1219,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/config.prod.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
