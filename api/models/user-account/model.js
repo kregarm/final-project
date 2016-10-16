@@ -1,23 +1,20 @@
 const mongoose = require('mongoose');
 
 const Schema = new mongoose.Schema({
-    fullName        : String,
-    password        : String,
-    accountType     : { type:String, ref:'user-account-types' },   //company-admin, admin, dev, tester, zaradi omejitev dostopa
-    companyAccount  : { type:String, ref:'company-account' },
-    image           : String,
-    position        : String,    //za prikaz: "teser, developer, JS dev, ..."
-    about           : String,
-    tokens          : [{
-        value   :String,
-        expires :
+
+    email:{type: String, unique: true},
+    password: String,
+    tokens: [
         {
-            type    : Date,
-            default : function(){
-                return +new Date()+1000*60*60*2;
+            value: String,
+            expires: { type: Date, default: function () {
+                return +new Date()+1000*60*60*24*14;
             }}
-    }]
+        }
+    ],
+    role: {type: String, default:'user'},
+    name: String,
+    surname: String
+});
 
-    });
-
-mongoose.model('user-account', Schema);
+mongoose.model('Account', Schema);

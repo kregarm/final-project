@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const crypto = require('crypto');
 const mime = require('mime');
+const auth = require('../../helpers/auth/middleware');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -61,7 +62,7 @@ module.exports = function () {
         }
     });
 
-    server.get('/api/project', function (req, res) {
+    server.get('/api/project', auth,  function (req, res) {
 
         const Project = mongoose.model('Project');
 
@@ -81,7 +82,7 @@ module.exports = function () {
 
     });
 
-    server.get('/api/project/:id', function (req, res) {
+    server.get('/api/project/:id', auth, function (req, res) {
 
         const Project = mongoose.model('Project');
         const projectId = req.params.id;

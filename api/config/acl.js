@@ -1,0 +1,271 @@
+/**
+ * Created by martinkregar on 16/10/16.
+ */
+const _ = require('lodash');
+
+const list = [
+    {
+        path:'/account/logout',
+        roles:[
+            {
+                type:'user',
+                methods:['get']
+            }
+        ]
+    },
+    {
+        path:'/api/roles',
+        roles:[
+            {
+                type:'user',
+                methods:['get']
+            }
+        ]
+    },
+    {
+        path:'/api/account/checkLogin',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/projects',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/projects',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/project',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/new-project',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/upload',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/project-environment',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/project-environment(/:id)',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/blog(/:id)',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/project(/:id)',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/test-case',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/test-case(/:id)',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/test-cases-group(/:id)',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/test-cases-project(/:id)',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/tech-stack(/:id)',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/project/',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/test-group/',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/test-group(/:id)',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/account/logout',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/test-group(/:id)',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/test-case-test-run(/:id)',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/test-run-project(/:id)',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/test-run(/:id)',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    },
+    {
+        path:'/api/test-run',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
+    }
+
+];
+
+exports.getPermissionsForRole = function (role) {
+
+
+    var permissions = [];
+
+    _.each(list, (item, i)=>{
+
+        const roleMethods = _.find(item.roles, {type:role});
+
+
+        if(roleMethods){
+            permissions.push({
+
+                path:item.path,
+                methods:roleMethods.methods
+
+            });
+
+
+        }
+
+    });
+
+    return permissions;
+
+};
+
+exports.list = list;

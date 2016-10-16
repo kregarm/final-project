@@ -5,19 +5,20 @@
             <div class="box-tools pull-right"></div>
         </div><!-- /.box-header -->
         <div class="box-body" ng-repeat="group in testRun.testGroups">
+            <h4>{{group.name}}</h4>
             <div ng-repeat="case in testRun.casesTested">
                 <div ng-if="group._id === case.testCase.testGroup">
                     <div class="test-case-test-run">
                         <h5 class="test-case-name">{{case.testCase.testCaseName}}</h5>
                         <div class="dropdown">
                             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Dropdown
+                                {{case.status}}
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Skipped</a></li>
-                                <li><a href="#">Passed</a></li>
-                                <li><a href="#">Failed</a></li>
+                                <li ng-click="updateTestCase(case._id, 'Skipped')"><a href>Skipped</a></li>
+                                <li ng-click="updateTestCase(case._id, 'Passed')"><a href>Passed</a></li>
+                                <li ng-click="updateTestCase(case._id, 'Failed')"><a href>Failed</a></li>
                             </ul>
                         </div>
                     </div>

@@ -16,7 +16,7 @@ module.exports = () => {
     require('./test-run/routes')();
 
     require('./user-account/model');
-    //require('./user-account/routes')();
+    require('./user-account/routes')();
 
     require('./test-group/model');
     require('./test-group/routes')();

@@ -51,7 +51,8 @@ module.exports = function () {
                                 return {
                                       testCase: caseDoc._id,
                                       comment: '',
-                                      status: ''
+                                      status: 'Not Tested',
+                                      imageUrl: ''
                                 };
 
                             });
@@ -104,4 +105,33 @@ module.exports = function () {
 
     });
 
-};
+    server.put('/api/test-case-test-run/:testCaseId', function (req, res) {
+
+
+        const testRun = mongoose.model('test-run');
+
+        const testCaseId = req.params.testCaseId;
+
+        console.log('id: ', testCaseId);
+
+        var testRunId = req.body.testRunId;
+
+
+        testRun.findOneAndUpdate(
+            {
+                'casesTested.testCase._id':testCaseId
+            },
+            {
+                $set:{ 'casesTested.testCase.$.status':req.body.status }
+            },
+            function(err, doc){
+                if(err){
+                    console.log(err);
+                } else {
+                    console.log(doc);
+                }
+            });
+
+    });
+
+}

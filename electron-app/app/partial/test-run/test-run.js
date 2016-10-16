@@ -1,11 +1,21 @@
 angular.module('app').controller('TestRunCtrl',function($scope, projectService){
 
     var testRun = projectService.model.testRun;
+    $scope.project = projectService.model.item;
 
     for(var i = 0; i < testRun.length; i++){
         $scope.testRun = testRun[i];
-        console.log($scope.testRun);
     }
+
+    $scope.updateTestCase = function (testCaseId, Status) {
+
+        var updatedCase = {
+            'status': Status,
+            'testRunId': $scope.testRun._id
+        };
+
+        projectService.updateTestCaseWithinRun(testCaseId, updatedCase);
+    };
 
 
 });
