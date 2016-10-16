@@ -14,7 +14,17 @@ angular.module('app').controller('TestRunCtrl',function($scope, projectService){
             'testRunId': $scope.testRun._id
         };
 
-        projectService.updateTestCaseWithinRun(testCaseId, updatedCase);
+        projectService.updateTestCaseWithinRun(testCaseId, $scope.testRun._id, updatedCase)
+            .then(function(res){
+
+                console.log(res.data);
+
+                $scope.testRun = res.data;
+
+            })
+            .catch(function(err){
+                console.log(err);
+            });
     };
 
 

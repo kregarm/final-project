@@ -288,13 +288,9 @@ angular.module('app').factory('projectService',function($http, CONFIG) {
             return promise;
 
         },
-        updateTestCaseWithinRun: function (id, data) {
+        updateTestCaseWithinRun: function (testCaseId, testRunId, data) {
 
-            var promise = $http.put('http://localhost:3010/api/test-case-test-run/' +id, data );
-
-            console.log('testCaseId: ', id);
-
-            return promise;
+            return $http.put('http://localhost:3010/api/test-case/'+testCaseId+'/test-run/' +testRunId, data);
 
         }
     };

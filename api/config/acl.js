@@ -246,6 +246,15 @@ const list = [
                 methods:['get','put','post','delete']
             }
         ]
+    },
+    {
+        path:'/api/test-case(/:testCaseId)/test-run(/:testRunId)',
+        roles:[
+            {
+                type:'user',
+                methods:['get','put','post','delete']
+            }
+        ]
     }
 
 ];

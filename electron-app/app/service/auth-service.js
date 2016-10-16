@@ -2,12 +2,13 @@ angular.module('app').factory('authService',function($timeout, $rootScope, $http
 
     var authService = {
         isLoggedIn: function () {
-
+console.log('Is logged in');
             return authService.getToken()
                 .then(function () {
                     return $http.post('http://localhost:3010/api/account/checkLogin')
                         .then(function (res) {
-                            console.log('haha');
+                            console.log('is logged in');
+                            console.log('User:',dataService.model.user);
                             dataService.model.loggedIn = true;
                             dataService.model.userPermissions = res.data;
                             $rootScope.isLoggedIn = true;

@@ -14,11 +14,11 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider, $httpP
             sidebar:{
                 templateUrl: 'partial/sidebar/sidebar.html',
                 controller: 'SidebarCtrl'
-            },
-            resolve:{
-                loggedIn:function (authService) {
-                    return authService.isLoggedIn();
-                }
+            }
+        },
+        resolve:{
+            loggedIn:function (authService) {
+                return authService.isLoggedIn();
             }
         }
     });
@@ -33,11 +33,11 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider, $httpP
             sidebar:{
                 templateUrl: 'partial/list-sidebar/list-sidebar.html',
                 controller: 'ListSidebarCtrl'
-            },
-            resolve:{
-                loggedIn:function (authService) {
-                    return authService.isLoggedIn();
-                }
+            }
+        },
+        resolve:{
+            loggedIn:function (authService) {
+                return authService.isLoggedIn();
             }
         }
     });

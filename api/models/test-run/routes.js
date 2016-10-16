@@ -106,31 +106,35 @@ module.exports = function () {
 
     });
 
-    server.put('/api/test-case-test-run/:testCaseId', auth, function (req, res) {
-
+    server.put('/api/test-case/:testCaseId/test-run/:testRunId', auth, function (req, res) {
 
         const testRun = mongoose.model('test-run');
 
         const testCaseId = req.params.testCaseId;
 
-        console.log('id: ', testCaseId);
+        console.log('Test case id: ', testCaseId);
+        console.log('Test run id:',req.params.testRunId);
+        console.log('Status: ',req.body.status);
 
         var testRunId = req.body.testRunId;
 
-
         testRun.findOneAndUpdate(
             {
-                'casesTested.testCase._id':testCaseId
+                _id:req.params.testRunId,
+                'casesTested._id':testCaseId
             },
             {
-                $set:{ 'casesTested.testCase.$.status':req.body.status }
+                $set:{ 'casesTested.$.status':req.body.status }
             },
-            function(err, doc){
-                if(err){
-                    console.log(err);
-                } else {
-                    console.log(doc);
-                }
+            {
+              new:true
+            })
+            .deepPopulate('casesTested.testCase testGroups')
+            .then(
+            function(doc){
+
+                    res.send(doc);
+
             });
 
     });

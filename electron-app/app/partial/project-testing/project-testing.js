@@ -61,13 +61,8 @@ angular.module('app').controller('ProjectTestingCtrl',function($scope, projectSe
                 $scope.errors3 = [];
             })
             .error(function (res) {
-                $scope.errors3 = [];
 
-                for (var k in res) {
-
-                    $scope.errors3.push(res[k].msg);
-                };
-            })
+            });
     };
 
 });
